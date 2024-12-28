@@ -1,4 +1,10 @@
 launch:
-
-- include:
-    file: "$(find-pkg-share linorobot2_bringup)/launch/bringup.launch.py"
+  - include:
+      file: "$(find-pkg-share linorobot2_bringup)/launch/bringup.launch.py"
+      arg:
+        - name: base_serial_port
+          value: /dev/ttyUSB0
+  - include:
+      file: "$(find-pkg-share linorobot2_description)/launch/description.launch.py"
+  - include:
+      file: "$(find-pkg-share hls_lfcd_lds_driver)/launch/hlds_laser.launch.py"
