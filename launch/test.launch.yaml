@@ -1,0 +1,13 @@
+launch:
+  - include:
+      file: "$(find-pkg-share linorobot2_bringup)/launch/bringup.launch.py"
+      arg:
+        - name: base_serial_port
+          value: "/dev/ttyUSB0"
+        - name: micro_ros_baudrate
+          value: "921600"
+        - name: madgwick
+          value: "true"
+        - name: orientation_stddev
+          value: "0.01"
+

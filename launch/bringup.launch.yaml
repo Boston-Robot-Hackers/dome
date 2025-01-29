@@ -6,9 +6,16 @@ launch:
           value: "/dev/ttyUSB0"
         - name: micro_ros_baudrate
           value: "921600"
-  - include:
-      file: "$(find-pkg-share linorobot2_description)/launch/description.launch.py"
+        - name: madgwick
+          value: "false"
+        - name: orientatopm_stddev
+          value: "0.01"
   - include:
       file: "$(find-pkg-share hls_lfcd_lds_driver)/launch/hlds_laser.launch.py"
+  - include:
+      file: "$(find-pkg-share foxglove_bridge)/launch/foxglove_bridge_launch.xml"
+      arg:
+        - name: port
+          value: "8765"
 
 
