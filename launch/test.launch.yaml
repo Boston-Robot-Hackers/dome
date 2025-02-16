@@ -6,8 +6,3 @@ launch:
           value: "/dev/ttyUSB0"
         - name: micro_ros_baudrate
           value: "921600"
-        - name: madgwick
-          value: "true"
-        - name: orientation_stddev
-          value: "0.01"
-
