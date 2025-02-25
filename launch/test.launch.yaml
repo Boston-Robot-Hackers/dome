@@ -6,3 +6,8 @@ launch:
           value: "/dev/ttyUSB0"
         - name: micro_ros_baudrate
           value: "921600"
+  - include:
+      file: "$(find-pkg-share hls_lfcd_lds_driver)/launch/hlds_laser.launch.py"
+      arg:
+        - name: port
+          value: "/dev/serial/by-path/platform-fd500000.pcie-pci-0000:01:00.0-usb-0:1.4:1.0-port0"
