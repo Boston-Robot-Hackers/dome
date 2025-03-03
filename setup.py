@@ -25,7 +25,9 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'dome_controller = dome.dome_controller:main'
+            'dome_controller = dome.dome_controller:main',
+            'test_cmdvel = src.test_cmdvel:main',
+            'test_opencv = src.test_opencv:main',
         ],
     },
 )
