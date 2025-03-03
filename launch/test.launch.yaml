@@ -15,12 +15,6 @@ launch:
       arg:
         - name: port
           value: "/dev/serial/by-path/platform-fd500000.pcie-pci-0000:01:00.0-usb-0:1.4:1.0-port0"
-<<<<<<< HEAD
-
-
-=======
   - include:
       file: "$(find-pkg-share dome)/launch/imu_apply.launch.py"
-
-  
->>>>>>> ed8cbbd (work in progress)
+      
