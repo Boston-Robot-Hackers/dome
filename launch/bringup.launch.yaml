@@ -16,4 +16,5 @@ launch:
       arg:
         - name: port
           value: "8765"
-
+  - include:
+      file: "$(find-pkg-share dome)/launch/imu_apply.launch.py"
