@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-
+# Pito Salas
 import cv2
 import sys
 
