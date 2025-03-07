@@ -11,6 +11,10 @@ launch:
       name: 'lidar'
       default: 'true'
       description: 'Launch lidar?'
+  - arg:
+      name: 'imu_apply'
+      default: 'false'
+      description: 'Launch imu correction?'
   - include:
       file: "$(find-pkg-share linorobot2_bringup)/launch/bringup.launch.py"
       arg:
@@ -26,3 +30,4 @@ launch:
       if: "$(var lidar)"
   - include: 
       file: "$(find-pkg-share dome)/launch/imu_apply.launch.py"
+      if: "$(var imu_apply)"
