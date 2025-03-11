@@ -22,8 +22,9 @@ setup(
     entry_points={
         'console_scripts': [
             'dome_controller = dome.dome_controller:main',
-            'test_cmdvel = src.test_cmdvel:main',
-            'test_opencv = src.test_opencv:main',
+            'test_cmdvel = dome.test_cmdvel:main',
+            'test_opencv = dome.test_opencv:main',
+            'trace_imu = dome.trace_imu:main',
         ],
     },
 )
