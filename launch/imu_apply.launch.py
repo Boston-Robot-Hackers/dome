@@ -1,129 +1,64 @@
-#!/usr/bin/env python3
-import rclpy
-from rclpy.node import Node
-from sensor_msgs.msg import Imu
-import sys
-from datetime import datetime
-from tf_transformations import euler_from_quaternion
-import math
+from launch import LaunchDescription
+from launch_ros.actions import Node
+from launch.substitutions import LaunchConfiguration
+from launch.actions import DeclareLaunchArgument
 
-class MultiIMUCSVLogger(Node):
-    def __init__(self):
-        super().__init__('multi_imu_csv_logger')
-        # Counter for messages from each topic
-        self.msg_count = {
-            'raw': 0,
-            'data': 0,
-            'corrected': 0
-        }
-        self.max_messages = 10
+def generate_launch_description():
+    # Create launch configuration variables
+    calib_file = LaunchConfiguration('calib_file', default='/home/pitosalas/imu_calibration.yaml')
+    calibrate_gyros = LaunchConfiguration('calibrate_gyros', default='false')
+    gyro_calib_samples = LaunchConfiguration('gyro_calib_samples', default='200')
+    raw_topic = LaunchConfiguration('raw_topic', default='/imu/data_raw')
+    corrected_topic = LaunchConfiguration('corrected_topic', default='/imu/corrected_data')
+    
+    # Declare the launch arguments
+    declare_calib_file_cmd = DeclareLaunchArgument(
+        'calib_file',
+        default_value='/home/pitosalas/imu_calibration.yaml',
+        description='Path to the IMU calibration YAML file')
         
-        # Create subscriptions to the three IMU topics
-        self.raw_subscription = self.create_subscription(
-            Imu,
-            '/imu/data_raw',
-            lambda msg: self.imu_callback(msg, 'raw'),
-            10
-        )
+    declare_calibrate_gyros_cmd = DeclareLaunchArgument(
+        'calibrate_gyros',
+        default_value='false',
+        description='Whether to calibrate gyros')
         
-        self.data_subscription = self.create_subscription(
-            Imu,
-            '/imu/data',
-            lambda msg: self.imu_callback(msg, 'data'),
-            10
-        )
+    declare_gyro_calib_samples_cmd = DeclareLaunchArgument(
+        'gyro_calib_samples',
+        default_value='200',
+        description='Number of samples to use for gyro calibration')
         
-        self.corrected_subscription = self.create_subscription(
-            Imu,
-            '/imu/corrected',
-            lambda msg: self.imu_callback(msg, 'corrected'),
-            10
-        )
+    declare_raw_topic_cmd = DeclareLaunchArgument(
+        'raw_topic',
+        default_value='/imu/data_raw',
+        description='Topic for raw IMU data')
         
-        # Track which topics have completed
-        self.completed_topics = set()
-        
-        # Write CSV header
-        print("topic, timestamp, roll, pitch, yaw, ang_vel_x, ang_vel_y, ang_vel_z, lin_acc_x, lin_acc_y, lin_acc_z")
-        self.get_logger().info('Multi-IMU CSV Logger started - listening on three IMU topics')
-        self.get_logger().info(f'Will capture {self.max_messages} messages from each topic')
-
-    def imu_callback(self, msg, topic_type):
-        # Skip if we've already received enough messages from this topic
-        if self.msg_count[topic_type] >= self.max_messages:
-            return
-            
-        self.msg_count[topic_type] += 1
-        
-        # Format timestamp as HH:MM:SS
-        timestamp = datetime.fromtimestamp(msg.header.stamp.sec + msg.header.stamp.nanosec / 1e9).strftime('%H:%M:%S')
-        
-        # Get the human-readable topic name
-        topic_name = f"imu_{topic_type}"
-        
-        # Convert quaternion to Euler angles using tf2
-        quaternion = [
-            msg.orientation.x,
-            msg.orientation.y,
-            msg.orientation.z,
-            msg.orientation.w
+    declare_corrected_topic_cmd = DeclareLaunchArgument(
+        'corrected_topic',
+        default_value='/imu/corrected_data',
+        description='Topic for corrected IMU data')
+    
+    # Create the node
+    imu_calib_node = Node(
+        package='imu_calib',
+        executable='apply_calib_node',
+        name='apply_calib_node',
+        parameters=[{
+            'calib_file': calib_file,
+            'calibrate_gyros': calibrate_gyros,
+            'gyro_calib_samples': gyro_calib_samples
+        }],
+        remappings=[
+            ('raw', raw_topic),
+            ('corrected', corrected_topic)
         ]
-        
-        # Get Euler angles in radians (roll, pitch, yaw)
-        (roll, pitch, yaw) = euler_from_quaternion(quaternion)
-        
-        # Convert from radians to degrees
-        roll = math.degrees(roll)
-        pitch = math.degrees(pitch)
-        yaw = math.degrees(yaw)
-        
-        # Get angular velocity data
-        ang_vel_x = msg.angular_velocity.x
-        ang_vel_y = msg.angular_velocity.y
-        ang_vel_z = msg.angular_velocity.z
-        
-        # Get linear acceleration data
-        lin_acc_x = msg.linear_acceleration.x
-        lin_acc_y = msg.linear_acceleration.y
-        lin_acc_z = msg.linear_acceleration.z
-        
-        # Print IMU data in CSV format with 2 decimal places and spaces after commas
-        print(f"{topic_name}, {timestamp}, {roll:.2f}, {pitch:.2f}, {yaw:.2f}, " + 
-              f"{ang_vel_x:.2f}, {ang_vel_y:.2f}, {ang_vel_z:.2f}, " + 
-              f"{lin_acc_x:.2f}, {lin_acc_y:.2f}, {lin_acc_z:.2f}")
-        
-        # Flush stdout to ensure data is written immediately
-        sys.stdout.flush()
-        
-        # Check if we've received enough messages from this topic
-        if self.msg_count[topic_type] >= self.max_messages:
-            self.get_logger().info(f'Received {self.max_messages} messages from {topic_name}')
-            self.completed_topics.add(topic_type)
-            
-            # Check if all topics have completed
-            if len(self.completed_topics) == 3:
-                self.get_logger().info('Received required messages from all topics. Shutting down...')
-                rclpy.shutdown()
-                
-    def print_status(self):
-        """Print current message count status"""
-        self.get_logger().info(f"Messages received - raw: {self.msg_count['raw']}, data: {self.msg_count['data']}, corrected: {self.msg_count['corrected']}")
-
-def main(args=None):
-    rclpy.init(args=args)
-    node = MultiIMUCSVLogger()
+    )
     
-    # Create a timer to periodically print status
-    status_timer = node.create_timer(5.0, node.print_status)
-    
-    try:
-        rclpy.spin(node)
-    except KeyboardInterrupt:
-        pass
-    finally:
-        status_timer.cancel()
-        node.destroy_node()
-        print("\nLogging complete.")
-
-if __name__ == '__main__':
-    main()
+    # Return the launch description
+    return LaunchDescription([
+        declare_calib_file_cmd,
+        declare_calibrate_gyros_cmd,
+        declare_gyro_calib_samples_cmd,
+        declare_raw_topic_cmd,
+        declare_corrected_topic_cmd,
+        imu_calib_node
+    ])

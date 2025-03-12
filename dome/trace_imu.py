@@ -7,28 +7,51 @@ from datetime import datetime
 from tf_transformations import euler_from_quaternion
 import math
 
-class IMUCSVLogger(Node):
+class MultiIMUCSVLogger(Node):
     def __init__(self):
-        super().__init__('imu_csv_logger')
-        # Counter for messages
-        self.msg_count = 0
+        super().__init__('multi_imu_csv_logger')
+        # Counter for messages from each topic
+        self.msg_count = {
+            'raw': 0,
+            'corrected': 0
+        }
         self.max_messages = 100
-        # Create a subscription to the IMU topic
-        self.subscription = self.create_subscription(
+        
+        # Create subscriptions to the two IMU topics
+        self.raw_subscription = self.create_subscription(
             Imu,
             '/imu/data_raw',
-            self.imu_callback,
-            10  # QoS profile depth
+            lambda msg: self.imu_callback(msg, 'raw'),
+            10
         )
+        
+        self.corrected_subscription = self.create_subscription(
+            Imu,
+            '/imu/corrected_data',
+            lambda msg: self.imu_callback(msg, 'corrected'),
+            10
+        )
+        
+        # Track which topics have completed
+        self.completed_topics = set()
+        
         # Write CSV header
-        print("timestamp, roll, pitch, yaw, ang_vel_x, ang_vel_y, ang_vel_z, lin_acc_x, lin_acc_y, lin_acc_z")
-        self.get_logger().info('IMU CSV Logger started - listening on /imu/data_raw')
-        self.get_logger().info(f'Will capture {self.max_messages} messages')
+        print("topic, timestamp, roll, pitch, yaw, ang_vel_x, ang_vel_y, ang_vel_z, lin_acc_x, lin_acc_y, lin_acc_z")
+        self.get_logger().info('Multi-IMU CSV Logger started - listening on two IMU topics')
+        self.get_logger().info(f'Will capture {self.max_messages} messages from each topic')
 
-    def imu_callback(self, msg):
-        self.msg_count += 1
+    def imu_callback(self, msg, topic_type):
+        # Skip if we've already received enough messages from this topic
+        if self.msg_count[topic_type] >= self.max_messages:
+            return
+            
+        self.msg_count[topic_type] += 1
+        
         # Format timestamp as HH:MM:SS
         timestamp = datetime.fromtimestamp(msg.header.stamp.sec + msg.header.stamp.nanosec / 1e9).strftime('%H:%M:%S')
+        
+        # Get the human-readable topic name
+        topic_name = f"imu_{topic_type}"
         
         # Convert quaternion to Euler angles using tf2
         quaternion = [
@@ -57,24 +80,42 @@ class IMUCSVLogger(Node):
         lin_acc_z = msg.linear_acceleration.z
         
         # Print IMU data in CSV format with 2 decimal places and spaces after commas
-        print(f"{timestamp}, {roll:.2f}, {pitch:.2f}, {yaw:.2f}, " + 
+        print(f"{topic_name}, {timestamp}, {roll:.2f}, {pitch:.2f}, {yaw:.2f}, " + 
               f"{ang_vel_x:.2f}, {ang_vel_y:.2f}, {ang_vel_z:.2f}, " + 
               f"{lin_acc_x:.2f}, {lin_acc_y:.2f}, {lin_acc_z:.2f}")
         
         # Flush stdout to ensure data is written immediately
         sys.stdout.flush()
         
-        # Check if we've received enough messages
-        if self.msg_count >= self.max_messages:
-            self.get_logger().info('Received 10 messages. Shutting down...')
-            # Signal the main loop to stop
-            rclpy.shutdown()
+        # Check if we've received enough messages from this topic
+        if self.msg_count[topic_type] >= self.max_messages:
+            self.get_logger().info(f'Received {self.max_messages} messages from {topic_name}')
+            self.completed_topics.add(topic_type)
+            
+            # Check if all topics have completed
+            if len(self.completed_topics) == 2:
+                self.get_logger().info('Received required messages from all topics. Shutting down...')
+                rclpy.shutdown()
+                
+    def print_status(self):
+        """Print current message count status"""
+        self.get_logger().info(f"Messages received - raw: {self.msg_count['raw']}, corrected: {self.msg_count['corrected']}")
 
 def main(args=None):
     rclpy.init(args=args)
-    node = IMUCSVLogger()
-    rclpy.spin(node)
-    node.destroy_node()
+    node = MultiIMUCSVLogger()
+    
+    # Create a timer to periodically print status
+    status_timer = node.create_timer(5.0, node.print_status)
+    
+    try:
+        rclpy.spin(node)
+    except KeyboardInterrupt:
+        pass
+    finally:
+        status_timer.cancel()
+        node.destroy_node()
+        print("\nLogging complete.")
 
 if __name__ == '__main__':
     main()
