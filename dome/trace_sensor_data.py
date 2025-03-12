@@ -15,7 +15,8 @@ class MultiSensorCSVLogger(Node):
         self.msg_count = {
             'raw': 0,
             'corrected': 0,
-            'odom': 0
+            'odom': 0,
+            'odom_unfiltered': 0
         }
         self.max_messages = 10
         
@@ -34,20 +35,28 @@ class MultiSensorCSVLogger(Node):
             10
         )
         
-        # Create subscription to the odom topic
+        # Create subscription to the odom topics
         self.odom_subscription = self.create_subscription(
             Odometry,
             '/odom',
-            self.odom_callback,
+            lambda msg: self.odom_callback(msg, 'odom'),
+            10
+        )
+        
+        self.odom_unfiltered_subscription = self.create_subscription(
+            Odometry,
+            '/odom/unfiltered',
+            lambda msg: self.odom_callback(msg, 'odom_unfiltered'),
             10
         )
         
         # Track which topics have completed
         self.completed_topics = set()
         
-        # Write CSV header
-        print("data")
-        self.get_logger().info('Multi-Sensor CSV Logger started - listening on IMU and odometry topics')
+        # Write header with fixed-width columns
+        header = f"{'topic':<15} {'timestamp':<12} {'roll':>8} {'pitch':>8} {'yaw':>8} {'ang_vel_x':>10} {'ang_vel_y':>10} {'ang_vel_z':>10}"
+        print(header)
+        print("-" * len(header))  # Print a separator line
 
     def imu_callback(self, msg, topic_type):
         # Skip if we've already received enough messages from this topic
@@ -83,10 +92,10 @@ class MultiSensorCSVLogger(Node):
         ang_vel_y = msg.angular_velocity.y
         ang_vel_z = msg.angular_velocity.z
         
-        # Format all data into a single string
-        data_str = f"{topic_name} {timestamp} r={roll:.2f} p={pitch:.2f} y={yaw:.2f} vx={ang_vel_x:.2f} vy={ang_vel_y:.2f} vz={ang_vel_z:.2f}"
+        # Format all data into fixed-width columns
+        data_str = f"{topic_name:<15} {timestamp:<12} {roll:8.2f} {pitch:8.2f} {yaw:8.2f} {ang_vel_x:10.2f} {ang_vel_y:10.2f} {ang_vel_z:10.2f}"
         
-        # Print as a single column
+        # Print the formatted string
         print(data_str)
         
         # Flush stdout to ensure data is written immediately
@@ -97,21 +106,21 @@ class MultiSensorCSVLogger(Node):
             self.completed_topics.add(topic_type)
             
             # Check if all topics have completed
-            if len(self.completed_topics) == 3:
+            if len(self.completed_topics) == 4:
                 rclpy.shutdown()
 
-    def odom_callback(self, msg):
+    def odom_callback(self, msg, topic_type):
         # Skip if we've already received enough messages from this topic
-        if self.msg_count['odom'] >= self.max_messages:
+        if self.msg_count[topic_type] >= self.max_messages:
             return
             
-        self.msg_count['odom'] += 1
+        self.msg_count[topic_type] += 1
         
         # Format timestamp as HH:MM:SS
         timestamp = datetime.fromtimestamp(msg.header.stamp.sec + msg.header.stamp.nanosec / 1e9).strftime('%H:%M:%S')
         
         # Get the human-readable topic name
-        topic_name = "odom"
+        topic_name = topic_type
         
         # Convert quaternion to Euler angles using tf2
         quaternion = [
@@ -134,21 +143,21 @@ class MultiSensorCSVLogger(Node):
         ang_vel_y = msg.twist.twist.angular.y
         ang_vel_z = msg.twist.twist.angular.z
         
-        # Format all data into a single string
-        data_str = f"{topic_name} {timestamp} r={roll:.2f} p={pitch:.2f} y={yaw:.2f} vx={ang_vel_x:.2f} vy={ang_vel_y:.2f} vz={ang_vel_z:.2f}"
+        # Format all data into fixed-width columns (matching the IMU format)
+        data_str = f"{topic_name:<15} {timestamp:<12} {roll:8.2f} {pitch:8.2f} {yaw:8.2f} {ang_vel_x:10.2f} {ang_vel_y:10.2f} {ang_vel_z:10.2f}"
         
-        # Print as a single column
+        # Print the formatted string
         print(data_str)
         
         # Flush stdout to ensure data is written immediately
         sys.stdout.flush()
         
         # Check if we've received enough messages from this topic
-        if self.msg_count['odom'] >= self.max_messages:
-            self.completed_topics.add('odom')
+        if self.msg_count[topic_type] >= self.max_messages:
+            self.completed_topics.add(topic_type)
             
             # Check if all topics have completed
-            if len(self.completed_topics) == 3:
+            if len(self.completed_topics) == 4:
                 rclpy.shutdown()
 
 def main(args=None):

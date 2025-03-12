@@ -24,7 +24,7 @@ setup(
             'dome_controller = dome.dome_controller:main',
             'test_cmdvel = dome.test_cmdvel:main',
             'test_opencv = dome.test_opencv:main',
-            'trace_imu = dome.trace_imu:main',
+            'trace_sensor_data = dome.trace_sensor_data:main',
         ],
     },
 )
