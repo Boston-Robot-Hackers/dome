@@ -1,0 +1,16 @@
+https://github.com/arcao/Syslog
+madhephaestus/ESP32Encoder
+jrowberg/I2Cdevlib-AK8975
+mcauser/i2cdetect
+jrowberg/I2Cdevlib-ADXL345
+jrowberg/I2Cdevlib-HMC5883L
+jrowberg/I2Cdevlib-HMC5843
+jrowberg/I2Cdevlib-ITG3200
+jrowberg/I2Cdevlib-Core
+jrowberg/I2Cdevlib-MPU6050
+SPI
+https://github.com/wollewald/INA219_WE
+adafruit/Adafruit PWM Servo Driver Library
+https://github.com/dthain/QMC5883L
+adafruit/Adafruit BusIO
+https://github.com/micro-ROS/micro_ros_platformio
