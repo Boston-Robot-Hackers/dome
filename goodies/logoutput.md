@@ -169,3 +169,11 @@ acutm:~/ros2_ws]
 [async_slam_toolbox_node-11] [INFO] [1741791527.979834291] [slam_toolbox]: Message Filter dropping message: frame 'laser' at time 1741791527.776 for reason 'discarding message because the queue is full'
 [async_slam_toolbox_node-11] [INFO] [1741791528.180291657] [slam_toolbox]: Message Filter dropping message: frame 'laser' at time 1741791527.976 for reason 'discarding message because the queue is full'
 [async_slam_toolbox_node-11] [INFO] [1741791528.382193147] [slam_toolbox]: Message Filter dropping message: frame 'laser' at time 1741791528.177 for reason 'discarding message because the queue is full'
+
+
+
+[planner_server-3] [INFO] [1741801829.546356306] [global_costmap.global_costmap]: Using plugin "inflation_layer"
+[planner_server-3] [INFO] [1741801829.549437723] [global_costmap.global_costmap]: Initialized plugin "inflation_layer"
+[planner_server-3] [FATAL] [1741801829.961285918] [planner_server]: Failed to create global planner. Exception: According to the loaded plugin descriptions the class nav2_navfn_planner/NavfnPlanner with base class type nav2_core::GlobalPlanner does not exist. Declared types are  nav2_navfn_planner::NavfnPlanner nav2_smac_planner::SmacPlanner2D nav2_smac_planner::SmacPlannerHybrid nav2_smac_planner::SmacPlannerLattice nav2_theta_star_planner::ThetaStarPlanner
+[planner_server-3] [INFO] [1741801829.964957085] [planner_server]: Cleaning up
+
