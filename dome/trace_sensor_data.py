@@ -8,9 +8,9 @@ from datetime import datetime
 from tf_transformations import euler_from_quaternion
 import math
 
-class MultiSensorCSVLogger(Node):
+class SensorTrace(Node):
     def __init__(self):
-        super().__init__('multi_sensor_csv_logger')
+        super().__init__('sensor_trace')
         # Counter for messages from each topic
         self.msg_count = {
             'raw': 0,
@@ -53,10 +53,23 @@ class MultiSensorCSVLogger(Node):
         # Track which topics have completed
         self.completed_topics = set()
         
+        # Add a timer to check if we should exit
+        self.exit_timer = self.create_timer(2.0, self.check_exit)
+        
         # Write header with fixed-width columns
         header = f"{'topic':<15} {'timestamp':<12} {'roll':>8} {'pitch':>8} {'yaw':>8} {'ang_vel_x':>10} {'ang_vel_y':>10} {'ang_vel_z':>10}"
         print(header)
         print("-" * len(header))  # Print a separator line
+
+    def check_exit(self):
+        # Check if we've collected enough data from all topics
+        all_complete = all(count >= self.max_messages for count in self.msg_count.values())
+        
+        if all_complete:
+            self.get_logger().info("All topics have received enough messages. Exiting...")
+            # Use sys.exit directly to force exit
+            import sys
+            sys.exit(0)
 
     def imu_callback(self, msg, topic_type):
         # Skip if we've already received enough messages from this topic
@@ -104,10 +117,6 @@ class MultiSensorCSVLogger(Node):
         # Check if we've received enough messages from this topic
         if self.msg_count[topic_type] >= self.max_messages:
             self.completed_topics.add(topic_type)
-            
-            # Check if all topics have completed
-            if len(self.completed_topics) == 4:
-                rclpy.shutdown()
 
     def odom_callback(self, msg, topic_type):
         # Skip if we've already received enough messages from this topic
@@ -155,14 +164,10 @@ class MultiSensorCSVLogger(Node):
         # Check if we've received enough messages from this topic
         if self.msg_count[topic_type] >= self.max_messages:
             self.completed_topics.add(topic_type)
-            
-            # Check if all topics have completed
-            if len(self.completed_topics) == 4:
-                rclpy.shutdown()
 
 def main(args=None):
     rclpy.init(args=args)
-    node = MultiSensorCSVLogger()
+    node = SensorTrace()
     
     try:
         rclpy.spin(node)

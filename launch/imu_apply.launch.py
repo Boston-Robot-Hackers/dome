@@ -29,7 +29,7 @@ def generate_launch_description():
         
     declare_raw_topic_cmd = DeclareLaunchArgument(
         'raw_topic',
-        default_value='/imu/data_raw',
+        default_value='/imu/data',
         description='Topic for raw IMU data')
         
     declare_corrected_topic_cmd = DeclareLaunchArgument(

@@ -25,6 +25,8 @@ setup(
             'test_cmdvel = dome.test_cmdvel:main',
             'test_opencv = dome.test_opencv:main',
             'trace_sensor_data = dome.trace_sensor_data:main',
+            'sensorcsv = dome.sensorcsv:main',
+            'rotation_test = dome.rotation_test:main',
         ],
     },
 )
