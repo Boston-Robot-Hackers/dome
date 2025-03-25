@@ -26,6 +26,9 @@ setup(
             'test_opencv = dome.test_opencv:main',
             'trace_imu = dome.trace_imu:main',
             'timestampmonitor = dome.timestampmonitor:main'
+            'trace_sensor_data = dome.trace_sensor_data:main',
+            'sensorcsv = dome.sensorcsv:main',
+            'rotation_test = dome.rotation_test:main',
         ],
     },
 )
