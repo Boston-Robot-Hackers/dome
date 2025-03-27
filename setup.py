@@ -25,10 +25,10 @@ setup(
             'rotation_test = dome.rotation_test:main',
             'sensorcsv = dome.sensorcsv:main',
             'test_cmdvel = dome.test_cmdvel:main',
+            'test_cmdvel2 = dome.test_cmdvel2:main',
             'test_opencv = dome.test_opencv:main',
-            'trace_imu = dome.trace_imu:main',
             'timestampmonitor = dome.timestampmonitor:main'
-            'trace_sensor_data = dome.trace_sensor_data:main',
+            'trace_sensor_data = dome.trace_sensor_data:main'
         ],
     },
 )
