@@ -1,4 +1,25 @@
 launch:
+  - arg:
+      name: 'fox'
+      default: 'false'
+      description: 'launch foxglove?'
+  - arg:
+      name: 'camera'
+      default: 'false'
+      description: 'launch camera?'
+  - arg:
+      name: 'lidar'
+      default: 'true'
+      description: 'Launch lidar?'
+  - arg:
+      name: 'imu_apply'
+      default: 'true'
+      description: 'Launch imu correction?'
+
+  - arg:
+      name: 'joy'
+      default: 'true'
+      description: 'Launch joystick support?'
   - include:
       file: "$(find-pkg-share linorobot2_bringup)/launch/bringup.launch.py"
       arg:
@@ -6,15 +27,21 @@ launch:
           value: "/dev/ttyUSB0"
         - name: micro_ros_baudrate
           value: "921600"
+        - name: madgwick
+          value: "true"
+        - name: orientation_stddev
+          value: "0.01"
+        - name: madgwick_imu_topic
+          value: "/imu/corrected_data"
+        - name: joy
+          value: "true"
+
   - include:
       file: "$(find-pkg-share hls_lfcd_lds_driver)/launch/hlds_laser.launch.py"
       arg:
         - name: port
           value: "/dev/serial/by-path/platform-fd500000.pcie-pci-0000:01:00.0-usb-0:1.4:1.0-port0"
-  - include:
-      file: "$(find-pkg-share foxglove_bridge)/launch/foxglove_bridge_launch.xml"
-      arg:
-        - name: port
-          value: "8765"
-  - include:
+      if: "$(var lidar)"
+  - include: 
       file: "$(find-pkg-share dome)/launch/imu_apply.launch.py"
+      if: "$(var imu_apply)"
