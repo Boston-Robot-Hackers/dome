@@ -20,6 +20,7 @@ launch:
       name: 'joy'
       default: 'true'
       description: 'Launch joystick support?'
+      
   - include:
       file: "$(find-pkg-share linorobot2_bringup)/launch/bringup.launch.py"
       arg:
@@ -42,6 +43,7 @@ launch:
         - name: port
           value: "/dev/serial/by-path/platform-fd500000.pcie-pci-0000:01:00.0-usb-0:1.4:1.0-port0"
       if: "$(var lidar)"
+
   - include: 
       file: "$(find-pkg-share dome)/launch/imu_apply.launch.py"
       if: "$(var imu_apply)"
