@@ -1,21 +1,16 @@
 launch:
   - arg:
-      name: 'fox'
-      default: 'false'
-      description: 'launch foxglove?'
-  - arg:
       name: 'camera'
       default: 'false'
       description: 'launch camera?'
   - arg:
       name: 'lidar'
-      default: 'true'
+      default: 'false'
       description: 'Launch lidar?'
   - arg:
       name: 'imu_apply'
       default: 'true'
       description: 'Launch imu correction?'
-
   - arg:
       name: 'joy'
       default: 'true'
@@ -33,9 +28,9 @@ launch:
         - name: orientation_stddev
           value: "0.01"
         - name: madgwick_imu_topic
-          value: "/imu/corrected_data"
+          value: '/imu/corrected_data'
         - name: joy
-          value: "true"
+          value: 'true'
 
   - include:
       file: "$(find-pkg-share hls_lfcd_lds_driver)/launch/hlds_laser.launch.py"
