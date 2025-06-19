@@ -5,7 +5,7 @@ launch:
       description: 'launch camera?'
   - arg:
       name: 'lidar'
-      default: 'false'
+      default: 'true'
       description: 'Launch lidar?'
   - arg:
       name: 'imu_apply'
@@ -30,7 +30,7 @@ launch:
         - name: madgwick_imu_topic
           value: '/imu/corrected_data'
         - name: joy
-          value: 'true'
+          value: "$(var joy)"
 
   - include:
       file: "$(find-pkg-share hls_lfcd_lds_driver)/launch/hlds_laser.launch.py"
