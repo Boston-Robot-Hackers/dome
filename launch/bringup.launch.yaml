@@ -16,6 +16,11 @@ launch:
       default: 'true'
       description: 'Launch joystick support?'
       
+  - arg:
+      name: 'panel'
+      default: 'true'
+      description: 'Launch status panel'
+
   - include:
       file: "$(find-pkg-share linorobot2_bringup)/launch/bringup.launch.py"
       arg:
@@ -42,3 +47,11 @@ launch:
   - include: 
       file: "$(find-pkg-share dome)/launch/imu_apply.launch.py"
       if: "$(var imu_apply)"
+
+  - node:
+      pkg: status_panel
+      exec: status_panel_node
+      name: status_panel_node
+      output: screen
+      if: "$(var panel)"      
+
