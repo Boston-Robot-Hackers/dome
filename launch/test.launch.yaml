@@ -13,12 +13,12 @@ launch:
       description: 'Launch imu correction?'
   - arg:
       name: 'joy'
-      default: 'false'
+      default: 'true'
       description: 'Launch joystick support?'
       
   - arg:
       name: 'panel'
-      default: 'false'
+      default: "true"
       description: 'Launch status panel'
 
   - include:
@@ -47,4 +47,5 @@ launch:
       name: status_panel_node
       output: screen
       if: "$(var panel)"      
+
 
