@@ -13,9 +13,8 @@ launch:
       description: 'Launch imu correction?'
   - arg:
       name: 'joy'
-      default: 'true'
+      default: "false"
       description: 'Launch joystick support?'
-      
   - arg:
       name: 'panel'
       default: "true"
@@ -37,7 +36,10 @@ launch:
         - name: joy
           value: "$(var joy)"
 
-  - include: 
+  - include:
+      file: "$(find-pkg-share foxglove_bridge)/launch/foxglove_bridge_launch.xml"
+
+  - include:
       file: "$(find-pkg-share dome)/launch/imu_apply.launch.py"
       if: "$(var imu_apply)"
 
@@ -46,6 +48,4 @@ launch:
       exec: status_panel_node
       name: status_panel_node
       output: screen
-      if: "$(var panel)"      
-
-
+      if: "$(var panel)"
