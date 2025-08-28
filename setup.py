@@ -29,6 +29,7 @@ setup(
             'test_opencv = dome.test_opencv:main',
             'timestampmonitor = dome.timestampmonitor:main',
             'topic_hz = dome.topic_hz:main',
+            'trace_tf = dome.trace_tf:main',
             'trace_sensor_data = dome.trace_sensor_data:main'
         ],
     },
