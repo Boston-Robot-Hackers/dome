@@ -28,6 +28,7 @@ setup(
             'test_cmdvel2 = dome.test_cmdvel2:main',
             'test_opencv = dome.test_opencv:main',
             'timestampmonitor = dome.timestampmonitor:main',
+            'topic_hz = dome.topic_hz:main',
             'trace_sensor_data = dome.trace_sensor_data:main'
         ],
     },
