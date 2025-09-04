@@ -34,18 +34,9 @@ launch:
         - name: madgwick_imu_topic
           value: '/imu/corrected_data'
         - name: joy
-          value: "$(var joy)"
-
-  - include:
-      file: "$(find-pkg-share foxglove_bridge)/launch/foxglove_bridge_launch.xml"
+          value: "false"
 
   - include:
       file: "$(find-pkg-share dome)/launch/imu_apply.launch.py"
       if: "$(var imu_apply)"
 
-  - node:
-      pkg: status_panel
-      exec: status_panel_node
-      name: status_panel_node
-      output: screen
-      if: "$(var panel)"
