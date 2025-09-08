@@ -17,7 +17,7 @@ launch:
       description: 'Launch joystick support?'
   - arg:
       name: 'panel'
-      default: "true"
+      default: "false"
       description: 'Launch status panel'
 
   - include:
@@ -34,9 +34,16 @@ launch:
         - name: madgwick_imu_topic
           value: '/imu/corrected_data'
         - name: joy
-          value: "false"
+          value: "$(var joy)"
 
   - include:
       file: "$(find-pkg-share dome)/launch/imu_apply.launch.py"
       if: "$(var imu_apply)"
+
+  - node:
+      pkg: status_panel
+      exec: status_panel_node
+      name: status_panel_node
+      output: screen
+      if: "$(var panel)"
 

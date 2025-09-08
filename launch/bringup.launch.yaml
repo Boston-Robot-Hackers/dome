@@ -13,19 +13,18 @@ launch:
       description: 'Launch imu correction?'
   - arg:
       name: 'joy'
-      default: 'false'
+      default: "false"
       description: 'Launch joystick support?'
-      
   - arg:
       name: 'panel'
-      default: 'true'
+      default: "false"
       description: 'Launch status panel'
 
   - include:
       file: "$(find-pkg-share linorobot2_bringup)/launch/bringup.launch.py"
       arg:
         - name: base_serial_port
-          value: "/dev/ttyUSB0"
+          value: "/dev/esp32"
         - name: micro_ros_baudrate
           value: "921600"
         - name: madgwick
@@ -37,13 +36,6 @@ launch:
         - name: joy
           value: "$(var joy)"
 
-  - include:
-      file: "$(find-pkg-share hls_lfcd_lds_driver)/launch/hlds_laser.launch.py"
-      arg:
-        - name: port
-          value: "/dev/serial/by-path/platform-fd500000.pcie-pci-0000:01:00.0-usb-0:1.4:1.0-port0"
-      if: "$(var lidar)"
-
   - include: 
       file: "$(find-pkg-share dome)/launch/imu_apply.launch.py"
       if: "$(var imu_apply)"
@@ -53,5 +45,5 @@ launch:
       exec: status_panel_node
       name: status_panel_node
       output: screen
-      if: "$(var panel)"      
+      if: "$(var panel)"
 
