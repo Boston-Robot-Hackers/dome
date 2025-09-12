@@ -19,6 +19,11 @@ launch:
       name: 'panel'
       default: "false"
       description: 'Launch status panel'
+  - arg:
+      name: 'fox'
+      default: "false"
+      description: 'Launch foxglove connector'
+
 
   - include:
       file: "$(find-pkg-share linorobot2_bringup)/launch/bringup.launch.py"
@@ -47,3 +52,9 @@ launch:
       output: screen
       if: "$(var panel)"
 
+  - include:
+      file: "$(find-pkg-share foxglove_bridge)/launch/foxglove_bridge_launch.xml"
+      arg:
+        - name: port
+          value: "8765"
+      if: "$(var fox)"
