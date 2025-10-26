@@ -23,12 +23,41 @@
 * Key design idea is holes on a 2.5 mm grid
 * And 3d Printed "adapters" to mount components on it
 
-## BOM
+## Bill Of Materials - BOM
 
-* two clear plastic plates
-* Two motors
-* Battery
-* Rasberry Pi 4
+### Major Components
+
+| Qty | Component | Brand | Link | Comments |
+|-----|-----------|-------|------|----------|
+| 1 | Raspberry Pi 4B+ | Raspberry Pi | [Product Page](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/) | 2GB (I think) |
+| 1 | Waveshare General Driver For Robots | Waveshare | [Product Page](https://www.waveshare.com/general-driver-for-robots.htm) | Includes ESP32, IMU and Motor Controllers |
+| 1 | Lidar LD19 | Waveshare | [Wiki](https://www.waveshare.com/wiki/DTOF_LIDAR_LD19) | |
+| 2 | 25mm geared motors with encoders | Pololu | [Product Category](https://www.pololu.com/category/115/25d-metal-gearmotors) | From my parts box |
+| 1 | 12V 3000mAh Lithium ion Battery | Talentcell | [Amazon](https://www.amazon.com/dp/B01M7Z9Z1N?ref_=ppx_hzod_image_dt_b_fed_asin_title_1_1) | |
+
+### Minor Components
+
+| Qty | Component | Brand | Link | Comments |
+|-----|-----------|-------|------|----------|
+| 1 | I2C "Shim" for Raspberry Pi | SparkFun | | |
+| 1 | Sparkfun Micro OLED | SparkFun | [Product Page](https://www.sparkfun.com/sparkfun-micro-oled-breakout-qwiic-lcd-22495.html) | |
+| 1 | SparkFun Qwiic OLED Display (0.91 in., 128x32) | SparkFun | [Product Page](https://www.sparkfun.com/sparkfun-qwiic-oled-display-0-91-in-128x32.html) | |
+
+### Software
+
+| Component | Link | Comments |
+|-----------|------|----------|
+| ROS2 | [Documentation](https://docs.ros.org/en/jazzy/index.html) | |
+| Linorobot2 (ESP32 fork) | [GitHub](https://github.com/hippo5329/linorobot2) | |
+| My own code | [GitHub](https://github.com/pitosalas) | |
+
+### Mechanical
+
+| Qty | Component | Link | Comments |
+|-----|-----------|------|----------|
+| 2 | Circular acrylic plates with 25mm grid of holes | [SendCutSend](https://cart.sendcutsend.com/jhonyptiw97d) | |
+| - | Variety of 3D printed parts | | Home made. 3D models available |
+| 2 | Brackets for motors | [Amazon](https://www.amazon.com/dp/B0CRQBJV4T?ref_=ppx_hzsearch_conn_dt_b_fed_asin_title_1&th=1) | |
 
 ## Software
 
