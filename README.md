@@ -1,8 +1,10 @@
 # Dome
 
+![Dome Robot](doc/dome.jpeg)
+
 ## What is Dome
 
-* its a differential drive robot
+* its a [differential drive robot](https://en.wikipedia.org/wiki/Differential_wheeled_robot)
 * used for learning and experimentation
 * not meant as a product
 * Called Dome because originally i had planned on putting a dome on top
@@ -31,7 +33,7 @@
 | Qty | Component | Brand | Link | Comments |
 |-----|-----------|-------|------|----------|
 | 1 | Raspberry Pi 4B+ | Raspberry Pi | [Product Page](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/) | 2GB (I think) |
-| 1 | Waveshare General Driver For Robots | Waveshare | [Product Page](https://www.waveshare.com/general-driver-for-robots.htm) | Includes ESP32, IMU and Motor Controllers |
+| 1 | Waveshare General Driver For Robots | Waveshare | [Product Page](https://www.waveshare.com/general-driver-for-robots.htm) | Includes [ESP32](https://www.espressif.com/en/products/socs/esp32), [IMU](https://en.wikipedia.org/wiki/Inertial_measurement_unit) and Motor Controllers |
 | 1 | Lidar LD19 | Waveshare | [Wiki](https://www.waveshare.com/wiki/DTOF_LIDAR_LD19) | |
 | 2 | 25mm geared motors with encoders | Pololu | [Product Category](https://www.pololu.com/category/115/25d-metal-gearmotors) | From my parts box |
 | 1 | 12V 3000mAh Lithium ion Battery | Talentcell | [Amazon](https://www.amazon.com/dp/B01M7Z9Z1N?ref_=ppx_hzod_image_dt_b_fed_asin_title_1_1) | |
@@ -40,9 +42,9 @@
 
 | Qty | Component | Brand | Link | Comments |
 |-----|-----------|-------|------|----------|
-| 1 | I2C "Shim" for Raspberry Pi | SparkFun | | |
+| 1 | [I2C](https://en.wikipedia.org/wiki/I%C2%B2C) "Shim" for Raspberry Pi | SparkFun | | |
 | 1 | Sparkfun Micro OLED | SparkFun | [Product Page](https://www.sparkfun.com/sparkfun-micro-oled-breakout-qwiic-lcd-22495.html) | |
-| 1 | SparkFun Qwiic OLED Display (0.91 in., 128x32) | SparkFun | [Product Page](https://www.sparkfun.com/sparkfun-qwiic-oled-display-0-91-in-128x32.html) | |
+| 1 | SparkFun [Qwiic](https://www.sparkfun.com/qwiic) OLED Display (0.91 in., 128x32) | SparkFun | [Product Page](https://www.sparkfun.com/sparkfun-qwiic-oled-display-0-91-in-128x32.html) | |
 
 ### Software
 
