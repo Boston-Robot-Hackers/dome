@@ -22,6 +22,7 @@
 
 * Key design idea is holes on a 2.5 mm grid
 * And 3d Printed "adapters" to mount components on it
+* [Here is an export](https://a360.co/43rDB5e) of the models being used now
 
 ## Bill Of Materials - BOM
 
