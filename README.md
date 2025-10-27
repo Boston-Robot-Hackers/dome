@@ -36,7 +36,7 @@
 | 1 | Raspberry Pi 4B+ | Raspberry Pi | [Product Page](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/) | 2GB (I think) |
 | 1 | Waveshare General Driver For Robots | Waveshare | [Product Page](https://www.waveshare.com/general-driver-for-robots.htm) | Includes [ESP32](https://www.espressif.com/en/products/socs/esp32), [IMU](https://en.wikipedia.org/wiki/Inertial_measurement_unit) and Motor Controllers |
 | 1 | Lidar LD19 | Waveshare | [Wiki](https://www.waveshare.com/wiki/DTOF_LIDAR_LD19) | |
-| 2 | 25mm geared motors with encoders | Pololu | [Product Category](https://www.pololu.com/category/115/25d-metal-gearmotors) | From my parts box |
+| 2 | 25mm geared motors with encoders | Digikey/DFRpbpt | [Product Category]https://www.digikey.com/en/products/detail/dfrobot/FIT0186/6588528) | |
 | 1 | 12V 3000mAh Lithium ion Battery | Talentcell | [Amazon](https://www.amazon.com/dp/B01M7Z9Z1N?ref_=ppx_hzod_image_dt_b_fed_asin_title_1_1) | |
 
 ### Minor Components
