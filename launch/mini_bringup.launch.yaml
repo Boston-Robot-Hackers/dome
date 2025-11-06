@@ -13,7 +13,7 @@ launch:
         - name: madgwick_imu_topic
           value: '/imu/corrected_data'
         - name: joy
-          value: "true"
+          value: "false"
 
   - include: 
       file: "$(find-pkg-share dome)/launch/imu_apply.launch.py"
