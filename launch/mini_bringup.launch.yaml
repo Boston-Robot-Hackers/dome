@@ -14,6 +14,9 @@ launch:
           value: '/imu/corrected_data'
         - name: joy
           value: "false"
+        - name: urdf
+          value: "$(find-pkg-share dome)/config/dome1.xacro"
+
 
   - include: 
       file: "$(find-pkg-share dome)/launch/imu_apply.launch.py"
