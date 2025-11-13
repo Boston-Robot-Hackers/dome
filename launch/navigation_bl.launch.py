@@ -18,6 +18,6 @@ def start_nav():
         map="/home/pitosalas/.control/maps/basement.yaml",
         rviz=True,
         sim=False,
-        config="/home/pitosalas/ros2_ws/dome/config/navigation.yaml",
+        config="/home/pitosalas/ros2_ws/src/dome/config/navigation.yaml",
     )
     bl.logger.info("*** LOG ***")
