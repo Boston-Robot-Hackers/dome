@@ -16,6 +16,8 @@ launch:
           value: "false"
         - name: urdf
           value: "$(find-pkg-share dome)/config/dome1.urdf.xacro"
+        - name: ekf_config_path
+          value: "$(find-pkg-share dome)/config/ekf.yaml"
 
 
   - include: 
