@@ -4,20 +4,29 @@
 import os
 
 from better_launch import BetterLaunch, launch_this
-
-os.environ["RCUTILS_LOGGING_MIN_SEVERITY"] = "WARN"  # Only display WARN, ERROR, FATAL
+from ament_index_python.packages import get_package_share_directory
 
 
 @launch_this(ui=True)
 def start_nav(rviz_arg: bool = False):
     bl = BetterLaunch()
+    dome_path = get_package_share_directory("dome")
+    print("Dome path: ", dome_path)
+
+    slam_config = os.path.join(dome_path,
+        'config',
+        'slam.yaml')
+
+    nav_config = os.path.join(dome_path,
+        'config',
+        'navigation.yaml')
 
     bl.include(
         "linorobot2_navigation",
         "slam.launch.py",
         rviz=rviz_arg,
         sim=False,
-        slam_config="/home/pitosalas/ros2_ws/src/dome/config/slam.yaml",
-        nav_config="/home/pitosalas/ros2_ws/src/dome/config/navigation.yaml",
+        slam_config= slam_config,
+        nav_config= nav_config
     )
     bl.logger.info("***********")
