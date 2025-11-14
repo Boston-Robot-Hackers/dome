@@ -16,7 +16,7 @@ slam_toolbox:
     scan_topic: /scan
     mode: mapping  # Use "async" for asynchronous SLAM mode
 
-    map_file_name: "/home/pitosalas/.control/maps/exp1"
+    map_file_name: "/home/pitosalas/.control/maps/basement"
     map_start_at_dock: true
 
     debug_logging: false
