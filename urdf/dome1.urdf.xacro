@@ -58,10 +58,10 @@
   <!-- Base link (main robot body) -->
   <link name="base_link"/>
 
-  <joint name="base_link_to_base_footprint" type="fixed">
+  <joint name="base_footprint_to_base_link" type="fixed">
     <parent link="base_footprint"/>
     <child link="base_link"/>
-    <origin xyz="${-base_link_x_offset} 0 ${-bottom_plate_height}" rpy="0 0 0"/>
+    <origin xyz="${base_link_x_offset} 0 ${bottom_plate_height}" rpy="0 0 0"/>
   </joint>
 
   <!-- Bottom plate -->

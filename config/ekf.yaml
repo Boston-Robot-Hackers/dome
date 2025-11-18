@@ -6,11 +6,11 @@ ekf_filter_node:
  
         map_frame: map             
         odom_frame: odom            
-        base_link_frame: base_link
+        base_link_frame: base_footprint
         world_frame: odom 
 
         # The order of the boolean values are (
-        #      X,Y,Z,roll,pitch,yaw,X˙,Y˙,Z˙,roll˙,pitch˙,yaw˙,X¨,Y¨,Z¨).
+        #      X,Y,Z,roll,pitch,yaw,vX,vY,vZ,vroll,vpitch,vyaw˙,accX,accY,accZ).
         
         #x     , y     , z,
         #roll  , pitch , yaw,

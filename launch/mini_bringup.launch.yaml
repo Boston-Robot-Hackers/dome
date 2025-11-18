@@ -7,7 +7,7 @@ launch:
         - name: micro_ros_baudrate
           value: "921600"
         - name: madgwick
-          value: "true"
+          value: "false"
         - name: orientation_stddev
           value: "0.01"
         - name: madgwick_imu_topic
