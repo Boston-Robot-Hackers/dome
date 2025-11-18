@@ -15,7 +15,7 @@ launch:
         - name: joy
           value: "false"
         - name: urdf
-          value: "$(find-pkg-share dome)/config/dome1.urdf.xacro"
+          value: "$(find-pkg-share dome)/config/dome1_tf_only.urdf.xacro"
         - name: ekf_config_path
           value: "$(find-pkg-share dome)/config/ekf.yaml"
 

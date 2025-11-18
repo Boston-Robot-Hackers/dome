@@ -1,0 +1,187 @@
+[0.000000] (-) TimerEvent: {}
+[0.001634] (dome) JobQueued: {'identifier': 'dome', 'dependencies': OrderedDict()}
+[0.002639] (dome) JobStarted: {'identifier': 'dome'}
+[0.099287] (-) TimerEvent: {}
+[0.199921] (-) TimerEvent: {}
+[0.300502] (-) TimerEvent: {}
+[0.401112] (-) TimerEvent: {}
+[0.501649] (-) TimerEvent: {}
+[0.602249] (-) TimerEvent: {}
+[0.702841] (-) TimerEvent: {}
+[0.803376] (-) TimerEvent: {}
+[0.904033] (-) TimerEvent: {}
+[1.004565] (-) TimerEvent: {}
+[1.105172] (-) TimerEvent: {}
+[1.205703] (-) TimerEvent: {}
+[1.306403] (-) TimerEvent: {}
+[1.407346] (-) TimerEvent: {}
+[1.507983] (-) TimerEvent: {}
+[1.608511] (-) TimerEvent: {}
+[1.709160] (-) TimerEvent: {}
+[1.809706] (-) TimerEvent: {}
+[1.910287] (-) TimerEvent: {}
+[2.010850] (-) TimerEvent: {}
+[2.111355] (-) TimerEvent: {}
+[2.211889] (-) TimerEvent: {}
+[2.312406] (-) TimerEvent: {}
+[2.412968] (-) TimerEvent: {}
+[2.513485] (-) TimerEvent: {}
+[2.614070] (-) TimerEvent: {}
+[2.714610] (-) TimerEvent: {}
+[2.815188] (-) TimerEvent: {}
+[2.915784] (-) TimerEvent: {}
+[3.016343] (-) TimerEvent: {}
+[3.116875] (-) TimerEvent: {}
+[3.217430] (-) TimerEvent: {}
+[3.318002] (-) TimerEvent: {}
+[3.418533] (-) TimerEvent: {}
+[3.519088] (-) TimerEvent: {}
+[3.619641] (-) TimerEvent: {}
+[3.720322] (-) TimerEvent: {}
+[3.821049] (-) TimerEvent: {}
+[3.921561] (-) TimerEvent: {}
+[4.022137] (-) TimerEvent: {}
+[4.122658] (-) TimerEvent: {}
+[4.223231] (-) TimerEvent: {}
+[4.323814] (-) TimerEvent: {}
+[4.424352] (-) TimerEvent: {}
+[4.524871] (-) TimerEvent: {}
+[4.625397] (-) TimerEvent: {}
+[4.725963] (-) TimerEvent: {}
+[4.826478] (-) TimerEvent: {}
+[4.927076] (-) TimerEvent: {}
+[5.027629] (-) TimerEvent: {}
+[5.128218] (-) TimerEvent: {}
+[5.228986] (-) TimerEvent: {}
+[5.329990] (dome) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', 'build/dome', 'build', '--build-base', '/home/pitosalas/linorobot2_ws/src/dome/build/dome/build', 'install', '--record', '/home/pitosalas/linorobot2_ws/src/dome/build/dome/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/pitosalas/linorobot2_ws/src/dome', 'env': {'LINOROBOT2_BASE': '2wd', 'TMUX': '/tmp/tmux-1000/default,1199,0', 'USER': 'pitosalas', 'SSH_CLIENT': '192.168.5.92 52718 22', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'XDG_SESSION_TYPE': 'tty', 'MCFLY_HISTFILE': '/home/pitosalas/.bash_history', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/pitosalas/linorobot2_ws/install/robot_msgs/lib:/home/pitosalas/linorobot2_ws/install/dome_interfaces/lib:/home/pitosalas/uros_ws/install/micro_ros_agent/lib:/home/pitosalas/uros_ws/install/micro_ros_msgs/lib:/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/aarch64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/pitosalas', 'MCFLY_HISTORY': '/tmp/mcfly.LcsQ0bhJ', 'OLDPWD': '/home/pitosalas/linorobot2_ws', 'TERM_PROGRAM_VERSION': '3.4', 'SSH_TTY': '/dev/pts/0', 'ROS_PYTHON_VERSION': '3', 'PS1': '[\\h:\\w]', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'LC_TERMINAL_VERSION': '3.6.5', 'COLCON_PREFIX_PATH': '/home/pitosalas/linorobot2_ws/install:/home/pitosalas/uros_ws/install', 'ROS_DISTRO': 'jazzy', 'MCFLY_LIGHT': 'FALSE', 'LOGNAME': 'pitosalas', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'TERM': 'tmux-256color', 'XDG_SESSION_ID': '1', 'HISTCONTROL': 'ignorespace', 'PATH': '/home/pitosalas/.local/bin:/home/pitosalas/.npm-global/bin:/home/pitosalas/.npm-global/bin:/home/pitosalas/linorobot2_ws/install/better_launch/bin:/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/pitosalas/.local/bin:/home/pitosalas/.platformio/penv/bin:/home/pitosalas/.local/bin:/home/pitosalas/.platformio/penv/bin', 'XDG_RUNTIME_DIR': '/run/user/1000', 'LANG': 'en_US.UTF-8', 'TERM_PROGRAM': 'tmux', 'AMENT_PREFIX_PATH': '/home/pitosalas/linorobot2_ws/install/tfdiag:/home/pitosalas/linorobot2_ws/install/status_panel:/home/pitosalas/linorobot2_ws/install/roscli:/home/pitosalas/linorobot2_ws/install/ros2sysmon:/home/pitosalas/linorobot2_ws/install/obper:/home/pitosalas/linorobot2_ws/install/robot_msgs:/home/pitosalas/linorobot2_ws/install/nav_tools:/home/pitosalas/linorobot2_ws/install/micro_ros_setup:/home/pitosalas/linorobot2_ws/install/linorobot2_navigation:/home/pitosalas/linorobot2_ws/install/linorobot2_gazebo:/home/pitosalas/linorobot2_ws/install/dome:/home/pitosalas/linorobot2_ws/install/linorobot2_description:/home/pitosalas/linorobot2_ws/install/linorobot2_bringup:/home/pitosalas/linorobot2_ws/install/linorobot2_base:/home/pitosalas/linorobot2_ws/install/linorobot2:/home/pitosalas/linorobot2_ws/install/lib_ros_examples:/home/pitosalas/linorobot2_ws/install/ldlidar_stl_ros2:/home/pitosalas/linorobot2_ws/install/imu_calib:/home/pitosalas/linorobot2_ws/install/hls_lfcd_lds_driver:/home/pitosalas/linorobot2_ws/install/handy:/home/pitosalas/linorobot2_ws/install/dome_interfaces:/home/pitosalas/linorobot2_ws/install/control:/home/pitosalas/linorobot2_ws/install/better_launch:/home/pitosalas/uros_ws/install/micro_ros_agent:/home/pitosalas/uros_ws/install/micro_ros_msgs:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'LC_TERMINAL': 'iTerm2', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'PWD': '/home/pitosalas/linorobot2_ws/src/dome/build/dome', 'MCFLY_SESSION_ID': 'veGhTrBak72RxumZj6tM882E', 'LC_ALL': 'en_US.UTF-8', 'SSH_CONNECTION': '192.168.5.92 52718 192.168.5.118 22', 'XDG_DATA_DIRS': '/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'LINOROBOT2_DEPTH_SENSOR': '', 'PYTHONPATH': '/home/pitosalas/linorobot2_ws/src/dome/build/dome/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/pitosalas/linorobot2_ws/src/dome/install/dome/lib/python3.12/site-packages:/home/pitosalas/linorobot2_ws/install/tfdiag/lib/python3.12/site-packages:/home/pitosalas/linorobot2_ws/install/status_panel/lib/python3.12/site-packages:/home/pitosalas/linorobot2_ws/install/roscli/lib/python3.12/site-packages:/home/pitosalas/linorobot2_ws/install/ros2sysmon/lib/python3.12/site-packages:/home/pitosalas/linorobot2_ws/install/obper/lib/python3.12/site-packages:/home/pitosalas/linorobot2_ws/install/robot_msgs/lib/python3.12/site-packages:/home/pitosalas/linorobot2_ws/install/linorobot2_gazebo/lib/python3.12/site-packages:/home/pitosalas/linorobot2_ws/install/dome/lib/python3.12/site-packages:/home/pitosalas/linorobot2_ws/install/lib_ros_examples/lib/python3.12/site-packages:/home/pitosalas/linorobot2_ws/install/handy/lib/python3.12/site-packages:/home/pitosalas/linorobot2_ws/install/dome_interfaces/lib/python3.12/site-packages:/home/pitosalas/linorobot2_ws/install/control/lib/python3.12/site-packages:/home/pitosalas/linorobot2_ws/install/better_launch/lib/python3.12/site-packages:/home/pitosalas/uros_ws/install/micro_ros_msgs/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'LINOROBOT2_LASER_SENSOR': 'ld19', 'TMUX_PANE': '%0', 'CMAKE_PREFIX_PATH': '/home/pitosalas/linorobot2_ws/install/ros2sysmon:/home/pitosalas/linorobot2_ws/install/robot_msgs:/home/pitosalas/linorobot2_ws/install/nav_tools:/home/pitosalas/linorobot2_ws/install/micro_ros_setup:/home/pitosalas/linorobot2_ws/install/linorobot2_navigation:/home/pitosalas/linorobot2_ws/install/linorobot2_gazebo:/home/pitosalas/linorobot2_ws/install/linorobot2_description:/home/pitosalas/linorobot2_ws/install/linorobot2_bringup:/home/pitosalas/linorobot2_ws/install/linorobot2_base:/home/pitosalas/linorobot2_ws/install/linorobot2:/home/pitosalas/linorobot2_ws/install/ldlidar_stl_ros2:/home/pitosalas/linorobot2_ws/install/imu_calib:/home/pitosalas/linorobot2_ws/install/hls_lfcd_lds_driver:/home/pitosalas/linorobot2_ws/install/dome_interfaces:/home/pitosalas/linorobot2_ws/install/better_launch:/home/pitosalas/uros_ws/install/micro_ros_agent:/home/pitosalas/uros_ws/install/micro_ros_msgs:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor', 'ROS2_WS': 'linorobot2_ws'}, 'shell': False}
+[5.333174] (-) TimerEvent: {}
+[5.434161] (-) TimerEvent: {}
+[5.534724] (-) TimerEvent: {}
+[5.635340] (-) TimerEvent: {}
+[5.735911] (-) TimerEvent: {}
+[5.836441] (-) TimerEvent: {}
+[5.937026] (-) TimerEvent: {}
+[6.037562] (-) TimerEvent: {}
+[6.138165] (-) TimerEvent: {}
+[6.238709] (-) TimerEvent: {}
+[6.339288] (-) TimerEvent: {}
+[6.439865] (-) TimerEvent: {}
+[6.540403] (-) TimerEvent: {}
+[6.641049] (-) TimerEvent: {}
+[6.741574] (-) TimerEvent: {}
+[6.842143] (-) TimerEvent: {}
+[6.942691] (-) TimerEvent: {}
+[7.043272] (-) TimerEvent: {}
+[7.100825] (dome) StdoutLine: {'line': b'running egg_info\n'}
+[7.102051] (dome) StdoutLine: {'line': b'creating build/dome/dome.egg-info\n'}
+[7.143412] (-) TimerEvent: {}
+[7.243980] (-) TimerEvent: {}
+[7.245616] (dome) StdoutLine: {'line': b'writing build/dome/dome.egg-info/PKG-INFO\n'}
+[7.246839] (dome) StdoutLine: {'line': b'writing dependency_links to build/dome/dome.egg-info/dependency_links.txt\n'}
+[7.247884] (dome) StdoutLine: {'line': b'writing entry points to build/dome/dome.egg-info/entry_points.txt\n'}
+[7.248544] (dome) StdoutLine: {'line': b'writing requirements to build/dome/dome.egg-info/requires.txt\n'}
+[7.249081] (dome) StdoutLine: {'line': b'writing top-level names to build/dome/dome.egg-info/top_level.txt\n'}
+[7.249581] (dome) StdoutLine: {'line': b"writing manifest file 'build/dome/dome.egg-info/SOURCES.txt'\n"}
+[7.344119] (-) TimerEvent: {}
+[7.444656] (-) TimerEvent: {}
+[7.541095] (dome) StdoutLine: {'line': b"reading manifest file 'build/dome/dome.egg-info/SOURCES.txt'\n"}
+[7.544561] (dome) StdoutLine: {'line': b"writing manifest file 'build/dome/dome.egg-info/SOURCES.txt'\n"}
+[7.545107] (-) TimerEvent: {}
+[7.545608] (dome) StdoutLine: {'line': b'running build\n'}
+[7.546158] (dome) StdoutLine: {'line': b'running build_py\n'}
+[7.546652] (dome) StdoutLine: {'line': b'creating /home/pitosalas/linorobot2_ws/src/dome/build/dome/build\n'}
+[7.547173] (dome) StdoutLine: {'line': b'creating /home/pitosalas/linorobot2_ws/src/dome/build/dome/build/lib\n'}
+[7.547615] (dome) StdoutLine: {'line': b'creating /home/pitosalas/linorobot2_ws/src/dome/build/dome/build/lib/dome\n'}
+[7.548125] (dome) StdoutLine: {'line': b'copying dome/dome_controller.py -> /home/pitosalas/linorobot2_ws/src/dome/build/dome/build/lib/dome\n'}
+[7.574453] (dome) StdoutLine: {'line': b'copying dome/timestampmonitor.py -> /home/pitosalas/linorobot2_ws/src/dome/build/dome/build/lib/dome\n'}
+[7.576610] (dome) StdoutLine: {'line': b'copying dome/trace_tf.py -> /home/pitosalas/linorobot2_ws/src/dome/build/dome/build/lib/dome\n'}
+[7.578475] (dome) StdoutLine: {'line': b'copying dome/test_opencv.py -> /home/pitosalas/linorobot2_ws/src/dome/build/dome/build/lib/dome\n'}
+[7.580043] (dome) StdoutLine: {'line': b'copying dome/rotation_test.py -> /home/pitosalas/linorobot2_ws/src/dome/build/dome/build/lib/dome\n'}
+[7.581929] (dome) StdoutLine: {'line': b'copying dome/test_cmdvel.py -> /home/pitosalas/linorobot2_ws/src/dome/build/dome/build/lib/dome\n'}
+[7.583470] (dome) StdoutLine: {'line': b'copying dome/topic_hz.py -> /home/pitosalas/linorobot2_ws/src/dome/build/dome/build/lib/dome\n'}
+[7.585134] (dome) StdoutLine: {'line': b'copying dome/__init__.py -> /home/pitosalas/linorobot2_ws/src/dome/build/dome/build/lib/dome\n'}
+[7.585927] (dome) StdoutLine: {'line': b'copying dome/trace_sensor_data.py -> /home/pitosalas/linorobot2_ws/src/dome/build/dome/build/lib/dome\n'}
+[7.587560] (dome) StdoutLine: {'line': b'copying dome/test_cmdvel2.py -> /home/pitosalas/linorobot2_ws/src/dome/build/dome/build/lib/dome\n'}
+[7.589277] (dome) StdoutLine: {'line': b'copying dome/sensorcsv.py -> /home/pitosalas/linorobot2_ws/src/dome/build/dome/build/lib/dome\n'}
+[7.591548] (dome) StdoutLine: {'line': b'running install\n'}
+[7.618185] (dome) StdoutLine: {'line': b'running install_lib\n'}
+[7.645245] (-) TimerEvent: {}
+[7.745814] (-) TimerEvent: {}
+[7.763103] (dome) StdoutLine: {'line': b'creating /home/pitosalas/linorobot2_ws/src/dome/install/dome/lib/python3.12/site-packages/dome\n'}
+[7.763734] (dome) StdoutLine: {'line': b'copying /home/pitosalas/linorobot2_ws/src/dome/build/dome/build/lib/dome/dome_controller.py -> /home/pitosalas/linorobot2_ws/src/dome/install/dome/lib/python3.12/site-packages/dome\n'}
+[7.764617] (dome) StdoutLine: {'line': b'copying /home/pitosalas/linorobot2_ws/src/dome/build/dome/build/lib/dome/timestampmonitor.py -> /home/pitosalas/linorobot2_ws/src/dome/install/dome/lib/python3.12/site-packages/dome\n'}
+[7.765615] (dome) StdoutLine: {'line': b'copying /home/pitosalas/linorobot2_ws/src/dome/build/dome/build/lib/dome/trace_tf.py -> /home/pitosalas/linorobot2_ws/src/dome/install/dome/lib/python3.12/site-packages/dome\n'}
+[7.766514] (dome) StdoutLine: {'line': b'copying /home/pitosalas/linorobot2_ws/src/dome/build/dome/build/lib/dome/test_opencv.py -> /home/pitosalas/linorobot2_ws/src/dome/install/dome/lib/python3.12/site-packages/dome\n'}
+[7.767367] (dome) StdoutLine: {'line': b'copying /home/pitosalas/linorobot2_ws/src/dome/build/dome/build/lib/dome/rotation_test.py -> /home/pitosalas/linorobot2_ws/src/dome/install/dome/lib/python3.12/site-packages/dome\n'}
+[7.768237] (dome) StdoutLine: {'line': b'copying /home/pitosalas/linorobot2_ws/src/dome/build/dome/build/lib/dome/test_cmdvel.py -> /home/pitosalas/linorobot2_ws/src/dome/install/dome/lib/python3.12/site-packages/dome\n'}
+[7.769064] (dome) StdoutLine: {'line': b'copying /home/pitosalas/linorobot2_ws/src/dome/build/dome/build/lib/dome/topic_hz.py -> /home/pitosalas/linorobot2_ws/src/dome/install/dome/lib/python3.12/site-packages/dome\n'}
+[7.769924] (dome) StdoutLine: {'line': b'copying /home/pitosalas/linorobot2_ws/src/dome/build/dome/build/lib/dome/__init__.py -> /home/pitosalas/linorobot2_ws/src/dome/install/dome/lib/python3.12/site-packages/dome\n'}
+[7.770643] (dome) StdoutLine: {'line': b'copying /home/pitosalas/linorobot2_ws/src/dome/build/dome/build/lib/dome/trace_sensor_data.py -> /home/pitosalas/linorobot2_ws/src/dome/install/dome/lib/python3.12/site-packages/dome\n'}
+[7.771551] (dome) StdoutLine: {'line': b'copying /home/pitosalas/linorobot2_ws/src/dome/build/dome/build/lib/dome/test_cmdvel2.py -> /home/pitosalas/linorobot2_ws/src/dome/install/dome/lib/python3.12/site-packages/dome\n'}
+[7.772732] (dome) StdoutLine: {'line': b'copying /home/pitosalas/linorobot2_ws/src/dome/build/dome/build/lib/dome/sensorcsv.py -> /home/pitosalas/linorobot2_ws/src/dome/install/dome/lib/python3.12/site-packages/dome\n'}
+[7.776580] (dome) StdoutLine: {'line': b'byte-compiling /home/pitosalas/linorobot2_ws/src/dome/install/dome/lib/python3.12/site-packages/dome/dome_controller.py to dome_controller.cpython-312.pyc\n'}
+[7.778451] (dome) StdoutLine: {'line': b'byte-compiling /home/pitosalas/linorobot2_ws/src/dome/install/dome/lib/python3.12/site-packages/dome/timestampmonitor.py to timestampmonitor.cpython-312.pyc\n'}
+[7.786804] (dome) StdoutLine: {'line': b'byte-compiling /home/pitosalas/linorobot2_ws/src/dome/install/dome/lib/python3.12/site-packages/dome/trace_tf.py to trace_tf.cpython-312.pyc\n'}
+[7.791328] (dome) StdoutLine: {'line': b'byte-compiling /home/pitosalas/linorobot2_ws/src/dome/install/dome/lib/python3.12/site-packages/dome/test_opencv.py to test_opencv.cpython-312.pyc\n'}
+[7.793469] (dome) StdoutLine: {'line': b'byte-compiling /home/pitosalas/linorobot2_ws/src/dome/install/dome/lib/python3.12/site-packages/dome/rotation_test.py to rotation_test.cpython-312.pyc\n'}
+[7.798066] (dome) StdoutLine: {'line': b'byte-compiling /home/pitosalas/linorobot2_ws/src/dome/install/dome/lib/python3.12/site-packages/dome/test_cmdvel.py to test_cmdvel.cpython-312.pyc\n'}
+[7.801903] (dome) StdoutLine: {'line': b'byte-compiling /home/pitosalas/linorobot2_ws/src/dome/install/dome/lib/python3.12/site-packages/dome/topic_hz.py to topic_hz.cpython-312.pyc\n'}
+[7.807329] (dome) StdoutLine: {'line': b'byte-compiling /home/pitosalas/linorobot2_ws/src/dome/install/dome/lib/python3.12/site-packages/dome/__init__.py to __init__.cpython-312.pyc\n'}
+[7.808562] (dome) StdoutLine: {'line': b'byte-compiling /home/pitosalas/linorobot2_ws/src/dome/install/dome/lib/python3.12/site-packages/dome/trace_sensor_data.py to trace_sensor_data.cpython-312.pyc\n'}
+[7.813426] (dome) StdoutLine: {'line': b'byte-compiling /home/pitosalas/linorobot2_ws/src/dome/install/dome/lib/python3.12/site-packages/dome/test_cmdvel2.py to test_cmdvel2.cpython-312.pyc\n'}
+[7.817602] (dome) StdoutLine: {'line': b'byte-compiling /home/pitosalas/linorobot2_ws/src/dome/install/dome/lib/python3.12/site-packages/dome/sensorcsv.py to sensorcsv.cpython-312.pyc\n'}
+[7.820689] (dome) StdoutLine: {'line': b'running install_data\n'}
+[7.821354] (dome) StdoutLine: {'line': b'creating /home/pitosalas/linorobot2_ws/src/dome/install/dome/share/ament_index\n'}
+[7.821928] (dome) StdoutLine: {'line': b'creating /home/pitosalas/linorobot2_ws/src/dome/install/dome/share/ament_index/resource_index\n'}
+[7.822430] (dome) StdoutLine: {'line': b'creating /home/pitosalas/linorobot2_ws/src/dome/install/dome/share/ament_index/resource_index/packages\n'}
+[7.822915] (dome) StdoutLine: {'line': b'copying resource/dome -> /home/pitosalas/linorobot2_ws/src/dome/install/dome/share/ament_index/resource_index/packages\n'}
+[7.823432] (dome) StdoutLine: {'line': b'copying package.xml -> /home/pitosalas/linorobot2_ws/src/dome/install/dome/share/dome\n'}
+[7.823975] (dome) StdoutLine: {'line': b'creating /home/pitosalas/linorobot2_ws/src/dome/install/dome/share/dome/launch\n'}
+[7.824537] (dome) StdoutLine: {'line': b'copying launch/copied_navigation.launch.py -> /home/pitosalas/linorobot2_ws/src/dome/install/dome/share/dome/launch\n'}
+[7.826136] (dome) StdoutLine: {'line': b'copying launch/mini_bringup.launch.yaml -> /home/pitosalas/linorobot2_ws/src/dome/install/dome/share/dome/launch\n'}
+[7.826875] (dome) StdoutLine: {'line': b'copying launch/extra_bringup.launch.yaml -> /home/pitosalas/linorobot2_ws/src/dome/install/dome/share/dome/launch\n'}
+[7.828234] (dome) StdoutLine: {'line': b'copying launch/navigation_bl.launch.py -> /home/pitosalas/linorobot2_ws/src/dome/install/dome/share/dome/launch\n'}
+[7.829522] (dome) StdoutLine: {'line': b'copying launch/remote_bringup.launch.yaml -> /home/pitosalas/linorobot2_ws/src/dome/install/dome/share/dome/launch\n'}
+[7.830915] (dome) StdoutLine: {'line': b'copying launch/copied_slam.launch.py -> /home/pitosalas/linorobot2_ws/src/dome/install/dome/share/dome/launch\n'}
+[7.832203] (dome) StdoutLine: {'line': b'copying launch/slam_bl.launch.py -> /home/pitosalas/linorobot2_ws/src/dome/install/dome/share/dome/launch\n'}
+[7.833559] (dome) StdoutLine: {'line': b'copying launch/bringup.launch.yaml -> /home/pitosalas/linorobot2_ws/src/dome/install/dome/share/dome/launch\n'}
+[7.835035] (dome) StdoutLine: {'line': b'copying launch/imu_apply.launch.py -> /home/pitosalas/linorobot2_ws/src/dome/install/dome/share/dome/launch\n'}
+[7.836374] (dome) StdoutLine: {'line': b'creating /home/pitosalas/linorobot2_ws/src/dome/install/dome/share/dome/config\n'}
+[7.837017] (dome) StdoutLine: {'line': b'copying config/slam.yaml -> /home/pitosalas/linorobot2_ws/src/dome/install/dome/share/dome/config\n'}
+[7.838300] (dome) StdoutLine: {'line': b'copying config/ekf.yaml -> /home/pitosalas/linorobot2_ws/src/dome/install/dome/share/dome/config\n'}
+[7.839519] (dome) StdoutLine: {'line': b'copying config/dome1_tf_only.urdf.xacro -> /home/pitosalas/linorobot2_ws/src/dome/install/dome/share/dome/config\n'}
+[7.840354] (dome) StdoutLine: {'line': b'copying config/dome1.urdf.xacro -> /home/pitosalas/linorobot2_ws/src/dome/install/dome/share/dome/config\n'}
+[7.841805] (dome) StdoutLine: {'line': b'copying config/navigation.yaml -> /home/pitosalas/linorobot2_ws/src/dome/install/dome/share/dome/config\n'}
+[7.842612] (dome) StdoutLine: {'line': b'running install_egg_info\n'}
+[7.845951] (-) TimerEvent: {}
+[7.946528] (-) TimerEvent: {}
+[7.995981] (dome) StdoutLine: {'line': b'Copying build/dome/dome.egg-info to /home/pitosalas/linorobot2_ws/src/dome/install/dome/lib/python3.12/site-packages/dome-0.0.0-py3.12.egg-info\n'}
+[8.001278] (dome) StdoutLine: {'line': b'running install_scripts\n'}
+[8.046671] (-) TimerEvent: {}
+[8.147275] (-) TimerEvent: {}
+[8.247867] (-) TimerEvent: {}
+[8.348387] (-) TimerEvent: {}
+[8.448957] (-) TimerEvent: {}
+[8.549497] (-) TimerEvent: {}
+[8.650058] (-) TimerEvent: {}
+[8.750586] (-) TimerEvent: {}
+[8.851209] (-) TimerEvent: {}
+[8.951841] (-) TimerEvent: {}
+[9.052355] (-) TimerEvent: {}
+[9.070604] (dome) StdoutLine: {'line': b'Installing dome_controller script to /home/pitosalas/linorobot2_ws/src/dome/install/dome/lib/dome\n'}
+[9.071522] (dome) StdoutLine: {'line': b'Installing rotation_test script to /home/pitosalas/linorobot2_ws/src/dome/install/dome/lib/dome\n'}
+[9.072201] (dome) StdoutLine: {'line': b'Installing sensorcsv script to /home/pitosalas/linorobot2_ws/src/dome/install/dome/lib/dome\n'}
+[9.072881] (dome) StdoutLine: {'line': b'Installing test_cmdvel script to /home/pitosalas/linorobot2_ws/src/dome/install/dome/lib/dome\n'}
+[9.073520] (dome) StdoutLine: {'line': b'Installing test_cmdvel2 script to /home/pitosalas/linorobot2_ws/src/dome/install/dome/lib/dome\n'}
+[9.074169] (dome) StdoutLine: {'line': b'Installing test_opencv script to /home/pitosalas/linorobot2_ws/src/dome/install/dome/lib/dome\n'}
+[9.074792] (dome) StdoutLine: {'line': b'Installing timestampmonitor script to /home/pitosalas/linorobot2_ws/src/dome/install/dome/lib/dome\n'}
+[9.075405] (dome) StdoutLine: {'line': b'Installing topic_hz script to /home/pitosalas/linorobot2_ws/src/dome/install/dome/lib/dome\n'}
+[9.076034] (dome) StdoutLine: {'line': b'Installing trace_sensor_data script to /home/pitosalas/linorobot2_ws/src/dome/install/dome/lib/dome\n'}
+[9.076654] (dome) StdoutLine: {'line': b'Installing trace_tf script to /home/pitosalas/linorobot2_ws/src/dome/install/dome/lib/dome\n'}
+[9.077292] (dome) StdoutLine: {'line': b'Installing trace_tf2 script to /home/pitosalas/linorobot2_ws/src/dome/install/dome/lib/dome\n'}
+[9.079200] (dome) StdoutLine: {'line': b"writing list of installed files to '/home/pitosalas/linorobot2_ws/src/dome/build/dome/install.log'\n"}
+[9.152633] (-) TimerEvent: {}
+[9.229858] (dome) CommandEnded: {'returncode': 0}
+[9.252991] (-) TimerEvent: {}
+[9.277831] (dome) JobEnded: {'identifier': 'dome', 'rc': 0}
+[9.280407] (-) EventReactorShutdown: {}
