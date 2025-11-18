@@ -53,7 +53,7 @@ amcl:
     z_short: 0.05    # Weight for short distribution
     
     tf_broadcast: true              # Broadcast map->odom transform
-    transform_tolerance: 0.2        # FIXED: Was 1.0s (too high!) - now 200ms for tighter localization
+    transform_tolerance: 0.5        # FIXED: Was 1.0s (too high!) - now 200ms for tighter localization
     
     # Motion update thresholds - require this much movement before updating
     update_min_a: 0.2   # Minimum angular movement (radians)
