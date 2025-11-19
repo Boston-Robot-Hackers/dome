@@ -25,7 +25,7 @@ slam_toolbox:
     transform_publish_period: 0.02
     map_update_interval: 5.0
     resolution: 0.05
-    max_laser_range: 12.0
+    max_laser_range: 10.0
     minimum_time_interval: 0.5  # Controls scan acceptance rate; consider lowering to 0.0 if scans are underused
     transform_timeout: 0.5       # Increased from 0.2 to allow more time for TF lookup [DeepWiki]
     tf_buffer_duration: 50.0
