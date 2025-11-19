@@ -31,7 +31,7 @@ def generate_launch_description():
     )
 
     slam_config_path = PathJoinSubstitution(
-        [FindPackageShare("dome"), "config", "slam.yaml"]
+        [FindPackageShare("linorobot2_navigation"), "config", "slam.yaml"]
     )
 
     navigation_launch_path = PathJoinSubstitution(
@@ -62,13 +62,13 @@ def generate_launch_description():
             DeclareLaunchArgument(
                 name="rviz", default_value="false", description="Run rviz"
             ),
-            # IncludeLaunchDescription(
-            #     PythonLaunchDescriptionSource(navigation_launch_path),
-            #     launch_arguments={
-            #         'use_sim_time': LaunchConfiguration("sim"),
-            #         'params_file': nav2_config_path
-            #     }.items()
-            # ),
+            IncludeLaunchDescription(
+                PythonLaunchDescriptionSource(navigation_launch_path),
+                launch_arguments={
+                    "use_sim_time": LaunchConfiguration("sim"),
+                    "params_file": nav2_config_path,
+                }.items(),
+            ),
             IncludeLaunchDescription(
                 PythonLaunchDescriptionSource(slam_launch_path),
                 launch_arguments={

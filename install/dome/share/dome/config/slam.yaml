@@ -16,14 +16,9 @@ slam_toolbox:
     scan_topic: /scan
     mode: mapping  # Use "async" for asynchronous SLAM mode
 
-<<<<<<< HEAD
-    map_file_name: "/home/pitosalas/.control/maps/upstairs"
-    map_start_at_dock: true
-=======
     # map_file_name: "/home/pitosalas/.control/maps/x123"´
     # map_start_at_dock: true
     # map_start_pose: [0.0, 0.0, 0.0]
->>>>>>> 5784469e0acd4df3b1e2d1faed49479be80fd363
 
     debug_logging: false
     throttle_scans: 1

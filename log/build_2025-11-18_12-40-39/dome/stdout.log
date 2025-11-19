@@ -1,0 +1,88 @@
+running egg_info
+creating build/dome/dome.egg-info
+writing build/dome/dome.egg-info/PKG-INFO
+writing dependency_links to build/dome/dome.egg-info/dependency_links.txt
+writing entry points to build/dome/dome.egg-info/entry_points.txt
+writing requirements to build/dome/dome.egg-info/requires.txt
+writing top-level names to build/dome/dome.egg-info/top_level.txt
+writing manifest file 'build/dome/dome.egg-info/SOURCES.txt'
+reading manifest file 'build/dome/dome.egg-info/SOURCES.txt'
+writing manifest file 'build/dome/dome.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/pitosalas/linorobot2_ws/src/dome/build/dome/build
+creating /home/pitosalas/linorobot2_ws/src/dome/build/dome/build/lib
+creating /home/pitosalas/linorobot2_ws/src/dome/build/dome/build/lib/dome
+copying dome/dome_controller.py -> /home/pitosalas/linorobot2_ws/src/dome/build/dome/build/lib/dome
+copying dome/timestampmonitor.py -> /home/pitosalas/linorobot2_ws/src/dome/build/dome/build/lib/dome
+copying dome/trace_tf.py -> /home/pitosalas/linorobot2_ws/src/dome/build/dome/build/lib/dome
+copying dome/test_opencv.py -> /home/pitosalas/linorobot2_ws/src/dome/build/dome/build/lib/dome
+copying dome/rotation_test.py -> /home/pitosalas/linorobot2_ws/src/dome/build/dome/build/lib/dome
+copying dome/test_cmdvel.py -> /home/pitosalas/linorobot2_ws/src/dome/build/dome/build/lib/dome
+copying dome/topic_hz.py -> /home/pitosalas/linorobot2_ws/src/dome/build/dome/build/lib/dome
+copying dome/__init__.py -> /home/pitosalas/linorobot2_ws/src/dome/build/dome/build/lib/dome
+copying dome/trace_sensor_data.py -> /home/pitosalas/linorobot2_ws/src/dome/build/dome/build/lib/dome
+copying dome/test_cmdvel2.py -> /home/pitosalas/linorobot2_ws/src/dome/build/dome/build/lib/dome
+copying dome/sensorcsv.py -> /home/pitosalas/linorobot2_ws/src/dome/build/dome/build/lib/dome
+running install
+running install_lib
+creating /home/pitosalas/linorobot2_ws/src/dome/install/dome/lib/python3.12/site-packages/dome
+copying /home/pitosalas/linorobot2_ws/src/dome/build/dome/build/lib/dome/dome_controller.py -> /home/pitosalas/linorobot2_ws/src/dome/install/dome/lib/python3.12/site-packages/dome
+copying /home/pitosalas/linorobot2_ws/src/dome/build/dome/build/lib/dome/timestampmonitor.py -> /home/pitosalas/linorobot2_ws/src/dome/install/dome/lib/python3.12/site-packages/dome
+copying /home/pitosalas/linorobot2_ws/src/dome/build/dome/build/lib/dome/trace_tf.py -> /home/pitosalas/linorobot2_ws/src/dome/install/dome/lib/python3.12/site-packages/dome
+copying /home/pitosalas/linorobot2_ws/src/dome/build/dome/build/lib/dome/test_opencv.py -> /home/pitosalas/linorobot2_ws/src/dome/install/dome/lib/python3.12/site-packages/dome
+copying /home/pitosalas/linorobot2_ws/src/dome/build/dome/build/lib/dome/rotation_test.py -> /home/pitosalas/linorobot2_ws/src/dome/install/dome/lib/python3.12/site-packages/dome
+copying /home/pitosalas/linorobot2_ws/src/dome/build/dome/build/lib/dome/test_cmdvel.py -> /home/pitosalas/linorobot2_ws/src/dome/install/dome/lib/python3.12/site-packages/dome
+copying /home/pitosalas/linorobot2_ws/src/dome/build/dome/build/lib/dome/topic_hz.py -> /home/pitosalas/linorobot2_ws/src/dome/install/dome/lib/python3.12/site-packages/dome
+copying /home/pitosalas/linorobot2_ws/src/dome/build/dome/build/lib/dome/__init__.py -> /home/pitosalas/linorobot2_ws/src/dome/install/dome/lib/python3.12/site-packages/dome
+copying /home/pitosalas/linorobot2_ws/src/dome/build/dome/build/lib/dome/trace_sensor_data.py -> /home/pitosalas/linorobot2_ws/src/dome/install/dome/lib/python3.12/site-packages/dome
+copying /home/pitosalas/linorobot2_ws/src/dome/build/dome/build/lib/dome/test_cmdvel2.py -> /home/pitosalas/linorobot2_ws/src/dome/install/dome/lib/python3.12/site-packages/dome
+copying /home/pitosalas/linorobot2_ws/src/dome/build/dome/build/lib/dome/sensorcsv.py -> /home/pitosalas/linorobot2_ws/src/dome/install/dome/lib/python3.12/site-packages/dome
+byte-compiling /home/pitosalas/linorobot2_ws/src/dome/install/dome/lib/python3.12/site-packages/dome/dome_controller.py to dome_controller.cpython-312.pyc
+byte-compiling /home/pitosalas/linorobot2_ws/src/dome/install/dome/lib/python3.12/site-packages/dome/timestampmonitor.py to timestampmonitor.cpython-312.pyc
+byte-compiling /home/pitosalas/linorobot2_ws/src/dome/install/dome/lib/python3.12/site-packages/dome/trace_tf.py to trace_tf.cpython-312.pyc
+byte-compiling /home/pitosalas/linorobot2_ws/src/dome/install/dome/lib/python3.12/site-packages/dome/test_opencv.py to test_opencv.cpython-312.pyc
+byte-compiling /home/pitosalas/linorobot2_ws/src/dome/install/dome/lib/python3.12/site-packages/dome/rotation_test.py to rotation_test.cpython-312.pyc
+byte-compiling /home/pitosalas/linorobot2_ws/src/dome/install/dome/lib/python3.12/site-packages/dome/test_cmdvel.py to test_cmdvel.cpython-312.pyc
+byte-compiling /home/pitosalas/linorobot2_ws/src/dome/install/dome/lib/python3.12/site-packages/dome/topic_hz.py to topic_hz.cpython-312.pyc
+byte-compiling /home/pitosalas/linorobot2_ws/src/dome/install/dome/lib/python3.12/site-packages/dome/__init__.py to __init__.cpython-312.pyc
+byte-compiling /home/pitosalas/linorobot2_ws/src/dome/install/dome/lib/python3.12/site-packages/dome/trace_sensor_data.py to trace_sensor_data.cpython-312.pyc
+byte-compiling /home/pitosalas/linorobot2_ws/src/dome/install/dome/lib/python3.12/site-packages/dome/test_cmdvel2.py to test_cmdvel2.cpython-312.pyc
+byte-compiling /home/pitosalas/linorobot2_ws/src/dome/install/dome/lib/python3.12/site-packages/dome/sensorcsv.py to sensorcsv.cpython-312.pyc
+running install_data
+creating /home/pitosalas/linorobot2_ws/src/dome/install/dome/share/ament_index
+creating /home/pitosalas/linorobot2_ws/src/dome/install/dome/share/ament_index/resource_index
+creating /home/pitosalas/linorobot2_ws/src/dome/install/dome/share/ament_index/resource_index/packages
+copying resource/dome -> /home/pitosalas/linorobot2_ws/src/dome/install/dome/share/ament_index/resource_index/packages
+copying package.xml -> /home/pitosalas/linorobot2_ws/src/dome/install/dome/share/dome
+creating /home/pitosalas/linorobot2_ws/src/dome/install/dome/share/dome/launch
+copying launch/copied_navigation.launch.py -> /home/pitosalas/linorobot2_ws/src/dome/install/dome/share/dome/launch
+copying launch/mini_bringup.launch.yaml -> /home/pitosalas/linorobot2_ws/src/dome/install/dome/share/dome/launch
+copying launch/extra_bringup.launch.yaml -> /home/pitosalas/linorobot2_ws/src/dome/install/dome/share/dome/launch
+copying launch/navigation_bl.launch.py -> /home/pitosalas/linorobot2_ws/src/dome/install/dome/share/dome/launch
+copying launch/remote_bringup.launch.yaml -> /home/pitosalas/linorobot2_ws/src/dome/install/dome/share/dome/launch
+copying launch/copied_slam.launch.py -> /home/pitosalas/linorobot2_ws/src/dome/install/dome/share/dome/launch
+copying launch/slam_bl.launch.py -> /home/pitosalas/linorobot2_ws/src/dome/install/dome/share/dome/launch
+copying launch/bringup.launch.yaml -> /home/pitosalas/linorobot2_ws/src/dome/install/dome/share/dome/launch
+copying launch/imu_apply.launch.py -> /home/pitosalas/linorobot2_ws/src/dome/install/dome/share/dome/launch
+creating /home/pitosalas/linorobot2_ws/src/dome/install/dome/share/dome/config
+copying config/slam.yaml -> /home/pitosalas/linorobot2_ws/src/dome/install/dome/share/dome/config
+copying config/ekf.yaml -> /home/pitosalas/linorobot2_ws/src/dome/install/dome/share/dome/config
+copying config/dome1_tf_only.urdf.xacro -> /home/pitosalas/linorobot2_ws/src/dome/install/dome/share/dome/config
+copying config/dome1.urdf.xacro -> /home/pitosalas/linorobot2_ws/src/dome/install/dome/share/dome/config
+copying config/navigation.yaml -> /home/pitosalas/linorobot2_ws/src/dome/install/dome/share/dome/config
+running install_egg_info
+Copying build/dome/dome.egg-info to /home/pitosalas/linorobot2_ws/src/dome/install/dome/lib/python3.12/site-packages/dome-0.0.0-py3.12.egg-info
+running install_scripts
+Installing dome_controller script to /home/pitosalas/linorobot2_ws/src/dome/install/dome/lib/dome
+Installing rotation_test script to /home/pitosalas/linorobot2_ws/src/dome/install/dome/lib/dome
+Installing sensorcsv script to /home/pitosalas/linorobot2_ws/src/dome/install/dome/lib/dome
+Installing test_cmdvel script to /home/pitosalas/linorobot2_ws/src/dome/install/dome/lib/dome
+Installing test_cmdvel2 script to /home/pitosalas/linorobot2_ws/src/dome/install/dome/lib/dome
+Installing test_opencv script to /home/pitosalas/linorobot2_ws/src/dome/install/dome/lib/dome
+Installing timestampmonitor script to /home/pitosalas/linorobot2_ws/src/dome/install/dome/lib/dome
+Installing topic_hz script to /home/pitosalas/linorobot2_ws/src/dome/install/dome/lib/dome
+Installing trace_sensor_data script to /home/pitosalas/linorobot2_ws/src/dome/install/dome/lib/dome
+Installing trace_tf script to /home/pitosalas/linorobot2_ws/src/dome/install/dome/lib/dome
+Installing trace_tf2 script to /home/pitosalas/linorobot2_ws/src/dome/install/dome/lib/dome
+writing list of installed files to '/home/pitosalas/linorobot2_ws/src/dome/build/dome/install.log'
