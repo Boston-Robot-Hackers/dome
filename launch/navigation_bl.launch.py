@@ -11,9 +11,9 @@ def start_nav():
     bl.include(
         "linorobot2_navigation",
         "navigation.launch.py",
-        map="/home/pitosalas/.control/maps/basement.yaml",
+        map="/home/pitosalas/.control/maps/first.yaml",
         rviz=True,
         sim=False,
-        config="/home/pitosalas/ros2_ws/dome/config/navigation.yaml",
+        config="/home/pitosalas/ros2_ws/src/dome/config/navigation.yaml",
     )
     bl.logger.info("*** LOG ***")
