@@ -15,8 +15,8 @@ def start_nav(rviz_arg: bool = False):
     bl.include(
         "linorobot2_navigation",
         "navigation.launch.py",
-        map="/home/pitosalas/.control/maps/base1.yaml",
-        rviz=rviz_arg,
+        map="/home/pitosalas/.control/maps/first.yaml",
+        rviz=True,
         sim=False,
         config="/home/pitosalas/ros2_ws/src/dome/config/navigation.yaml",
     )

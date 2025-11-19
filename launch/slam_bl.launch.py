@@ -11,7 +11,6 @@ from better_launch import BetterLaunch, launch_this
 def start_nav(rviz_arg: bool = False):
     bl = BetterLaunch()
     dome_path = get_package_share_directory("dome")
-    print("Dome path: ", dome_path)
 
     slam_config = os.path.join(dome_path, "config", "slam.yaml")
 
