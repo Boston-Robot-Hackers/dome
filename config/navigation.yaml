@@ -90,7 +90,7 @@ bt_navigator:
 
 controller_server:
   ros__parameters:
-    controller_frequency: 20.0      # Hz - control loop rate (must sustain this!)
+    controller_frequency: 21.0      # Hz - control loop rate (must sustain this!)
     costmap_update_timeout: 0.30    # seconds - max time to wait for costmap
     
     # Velocity thresholds for progress/failure detection
