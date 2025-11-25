@@ -18,7 +18,3 @@ launch:
           value: "$(find-pkg-share dome)/config/dome1.urdf.xacro"
         - name: ekf_config_path
           value: "$(find-pkg-share dome)/config/ekf.yaml"
-
-
-  - include: 
-      file: "$(find-pkg-share dome)/launch/imu_apply.launch.py"

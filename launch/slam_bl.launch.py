@@ -13,7 +13,6 @@ def start_nav(rviz_arg: bool = False):
     dome_path = get_package_share_directory("dome")
 
     slam_config = os.path.join(dome_path, "config", "slam.yaml")
-
     nav_config = os.path.join(dome_path, "config", "navigation.yaml")
 
     bl.include(
