@@ -19,13 +19,3 @@ def start_nav(rviz_arg: bool = False):
         nav_config=nav_config,
     )
     bl.logger.info("***********")
-
-    bl.include(
-        "linorobot2_navigation",
-        "slam.launch.py",
-        rviz=rviz_arg,
-        sim=False,
-        slam_config=slam_config,
-        nav_config=nav_config,
-    )
-    bl.logger.info("***********")
