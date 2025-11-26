@@ -1,11 +1,8 @@
 #!/usr/bin/env python3
 # This is my version of launching the slam launch file from linorobot2
 
-import os
 
-from ament_index_python.packages import get_package_share_directory
 from better_launch import BetterLaunch, launch_this
-
 
 
 @launch_this(ui=True)
@@ -22,9 +19,8 @@ def start_nav(rviz_arg: bool = False):
         micro_ros_baudrate="921600",
         madgwick="false",
         orientation_stddev="0.01",
-        madgwick_imu_topic='/imu/corrected_data',
         joy="false",
         urdf=urdf_path,
-        ekf_config_path=ekf_config_path ,
+        ekf_config_path=ekf_config_path,
     )
     bl.logger.info("***********")
