@@ -14,11 +14,11 @@ slam_toolbox:
     map_frame: map
     base_frame: base_footprint
     scan_topic: /scan
-    mode: mapping  # Use "async" for asynchronous SLAM mode
+    mode: mapping 
 
-    # map_file_name: "/home/pitosalas/.control/maps/x123"´
+    map_file_name: "/home/pitosalas/.control/maps/newbasement"
     # map_start_at_dock: true
-    # map_start_pose: [0.0, 0.0, 0.0]
+    map_start_pose: [0.0, 0.0, 0.0]
 
     debug_logging: false
     throttle_scans: 1

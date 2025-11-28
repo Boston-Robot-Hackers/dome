@@ -24,6 +24,7 @@ amcl:
     pf_z: 0.99
     recovery_alpha_fast: 0.0
     recovery_alpha_slow: 0.0
+<<<<<<< HEAD
     resample_interval: 1
     robot_model_type: "nav2_amcl::DifferentialMotionModel"
     save_pose_rate: 0.5
@@ -37,6 +38,28 @@ amcl:
     z_rand: 0.5
     z_short: 0.05
     scan_topic: scan
+=======
+    
+    resample_interval: 1    # Resample every N updates
+    robot_model_type: "nav2_amcl::DifferentialMotionModel"  # Differential drive robot
+    save_pose_rate: 0.5     # Hz - rate to save pose estimates
+    
+    # Laser likelihood field model parameters
+    sigma_hit: 0.2   # Standard deviation of hit distribution
+    z_hit: 0.5       # Weight for hit distribution
+    z_max: 0.05      # Weight for max range distribution
+    z_rand: 0.5      # Weight for random distribution
+    z_short: 0.05    # Weight for short distribution
+    
+    tf_broadcast: true              # Broadcast map->odom transform
+    transform_tolerance: 1.0
+    
+    # Motion update thresholds - require this much movement before updating
+    update_min_a: 0.2   # Minimum angular movement (radians)
+    update_min_d: 0.25  # Minimum linear movement (meters)
+
+##############################################################################
+>>>>>>> f5833c509133365fcf17d87b8edfa63976f4cddd
 
 bt_navigator:
   ros__parameters:
@@ -67,8 +90,15 @@ bt_navigator:
 
 controller_server:
   ros__parameters:
+<<<<<<< HEAD
     controller_frequency: 20.0
     costmap_update_timeout: 0.30
+=======
+    controller_frequency: 21.0      # Hz - control loop rate (must sustain this!)
+    costmap_update_timeout: 0.30    # seconds - max time to wait for costmap
+    
+    # Velocity thresholds for progress/failure detection
+>>>>>>> f5833c509133365fcf17d87b8edfa63976f4cddd
     min_x_velocity_threshold: 0.001
     min_y_velocity_threshold: 0.5
     min_theta_velocity_threshold: 0.001
@@ -95,6 +125,7 @@ controller_server:
       xy_goal_tolerance: 0.35
       yaw_goal_tolerance: 0.35
     FollowPath:
+<<<<<<< HEAD
       plugin: "nav2_rotation_shim_controller::RotationShimController"
       primary_controller: "nav2_regulated_pure_pursuit_controller::RegulatedPurePursuitController"
       angular_dist_threshold: 0.785
@@ -132,6 +163,128 @@ controller_server:
       max_angular_accel: 3.2
       max_robot_pose_search_dist: 10.0
       stateful: true
+=======
+      plugin: "nav2_mppi_controller::MPPIController"
+      
+      # Trajectory sampling parameters
+      time_steps: 56          # Number of time steps to predict ahead
+      model_dt: 0.05          # seconds - time step duration (56 * 0.05 = 2.8s lookahead)
+      batch_size: 2000        # Number of trajectories to sample (higher = better but slower)
+      
+      # Acceleration limits (m/s² and rad/s²)
+      ax_max: 3.0    # Maximum forward acceleration
+      ax_min: -3.0   # Maximum backward acceleration (deceleration)
+      ay_max: 3.0    # Lateral acceleration (N/A for diff drive)
+      az_max: 3.5    # Maximum angular acceleration
+      
+      # Velocity noise for sampling (standard deviation)
+      vx_std: 0.2  # Forward velocity noise
+      vy_std: 0.2  # Lateral velocity noise
+      wz_std: 0.4  # Angular velocity noise
+      
+      # VELOCITY LIMITS - CRITICAL SETTINGS
+      vx_max: 0.8    # m/s - maximum forward velocity
+      vx_min: -0.35  # m/s - maximum reverse velocity
+      vy_max: 0.5    # m/s - lateral velocity (not used for diff drive)
+      wz_max: 1.0    # rad/s - maximum angular velocity (~57 deg/s)
+      
+      # MPPI algorithm parameters
+      iteration_count: 1      # Number of MPPI iterations per control cycle
+      prune_distance: 1.7     # meters - prune path points closer than this
+      transform_tolerance: 0.5
+      temperature: 0.3        # Lower = more deterministic, higher = more exploration
+      gamma: 0.015           # Discount factor for future costs
+      motion_model: "DiffDrive"
+      visualize: true        # Publish visualization markers
+      regenerate_noises: true
+      
+      # Trajectory visualization settings
+      TrajectoryVisualizer:
+        trajectory_step: 5  # Visualize every 5th trajectory
+        time_step: 3        # Visualize every 3rd time step
+      
+      # Ackermann constraints (not applicable for differential drive)
+      AckermannConstraints:
+        min_turning_r: 0.2
+      
+      ##########################################################################
+      # MPPI Critics - Cost functions that guide trajectory selection
+      # Each critic evaluates trajectories and assigns costs
+      ##########################################################################
+      critics: [
+        "ConstraintCritic",    # Enforces velocity/acceleration constraints
+        "CostCritic",          # Penalizes proximity to obstacles
+        "GoalCritic",          # Attracts robot toward goal
+        "GoalAngleCritic",     # Aligns robot orientation with goal
+        "PathAlignCritic",     # Keeps robot aligned with global path
+        "PathFollowCritic",    # Encourages following the path closely
+        "PathAngleCritic",     # Matches path orientation
+        "PreferForwardCritic"  # Prefers forward motion over reverse
+      ]
+      
+      ConstraintCritic:
+        enabled: true
+        cost_power: 1
+        cost_weight: 4.0  # Weight for constraint violations
+      
+      GoalCritic:
+        enabled: true
+        cost_power: 1
+        cost_weight: 5.0           # Strong goal attraction
+        threshold_to_consider: 1.4  # meters - only apply when within this distance
+      
+      GoalAngleCritic:
+        enabled: true
+        cost_power: 1
+        cost_weight: 3.0
+        threshold_to_consider: 0.5
+      
+      PreferForwardCritic:
+        enabled: true
+        cost_power: 1
+        cost_weight: 5.0
+        threshold_to_consider: 0.5
+      
+      CostCritic:
+        enabled: true
+        cost_power: 1
+        cost_weight: 3.81           # Obstacle avoidance weight
+        critical_cost: 300.0        # Cost threshold for dangerous trajectories
+        consider_footprint: false   # Consider full robot footprint (vs. point)
+        collision_cost: 1000000.0   # Very high cost for collisions
+        near_goal_distance: 1.0
+        trajectory_point_step: 2    # Check every 2nd trajectory point for efficiency
+      
+      PathAlignCritic:
+        enabled: true
+        cost_power: 1
+        cost_weight: 14.0           # Strong path alignment
+        max_path_occupancy_ratio: 0.05
+        trajectory_point_step: 4
+        threshold_to_consider: 0.5
+        offset_from_furthest: 20
+        use_path_orientations: false
+      
+      PathFollowCritic:
+        enabled: true
+        cost_power: 1
+        cost_weight: 5.0
+        offset_from_furthest: 5
+        threshold_to_consider: 1.4
+      
+      PathAngleCritic:
+        enabled: true
+        cost_power: 1
+        cost_weight: 2.0
+        offset_from_furthest: 4
+        threshold_to_consider: 0.5
+        max_angle_to_furthest: 1.0
+        mode: 0
+
+##############################################################################
+# LOCAL COSTMAP - Rolling window around robot for obstacle avoidance
+##############################################################################
+>>>>>>> f5833c509133365fcf17d87b8edfa63976f4cddd
 
 local_costmap:
   local_costmap:
@@ -263,12 +416,25 @@ behavior_server:
       plugin: "nav2_behaviors::AssistedTeleop"
     local_frame: odom
     global_frame: map
+<<<<<<< HEAD
     robot_base_frame: base_link
     transform_tolerance: 1.0
     simulate_ahead_time: 2.0
     max_rotational_vel: 1.0
     min_rotational_vel: 0.4
     rotational_acc_lim: 3.2
+=======
+    robot_base_frame: base_footprint
+    transform_tolerance: 0.5
+    
+    # Behavior parameters
+    simulate_ahead_time: 2.0       # seconds - look ahead for collision checking
+    max_rotational_vel: 1.0        # rad/s - for spin behavior
+    min_rotational_vel: 0.4        # rad/s
+    rotational_acc_lim: 3.2        # rad/s² - angular acceleration limit
+
+##############################################################################
+>>>>>>> f5833c509133365fcf17d87b8edfa63976f4cddd
 
 waypoint_follower:
   ros__parameters:
@@ -302,12 +468,21 @@ collision_monitor:
     cmd_vel_in_topic: "cmd_vel_smoothed"
     cmd_vel_out_topic: "cmd_vel"
     state_topic: "collision_monitor_state"
+<<<<<<< HEAD
     transform_tolerance: 1.0
     source_timeout: 1.0
     base_shift_correction: True
     stop_pub_timeout: 2.0
     # Polygons represent zone around the robot for "stop", "slowdown" and "limit" action types,
     # and robot footprint for "approach" action type.
+=======
+    transform_tolerance: 0.5
+    source_timeout: 1.0            # seconds - sensor data timeout
+    base_shift_correction: True    # Correct for base frame offset
+    stop_pub_timeout: 2.0          # seconds - publish stop command timeout
+    
+    # Collision detection zones
+>>>>>>> f5833c509133365fcf17d87b8edfa63976f4cddd
     polygons: ["FootprintApproach"]
     FootprintApproach:
       type: "polygon"
@@ -357,6 +532,23 @@ docking_server:
       external_detection_rotation_pitch: -1.57
       external_detection_rotation_yaw: 0.0
       filter_coef: 0.1
+<<<<<<< HEAD
+=======
+    
+    # Docking controller
+    controller:
+      k_phi: 3.0              # Proportional gain for angular error
+      k_delta: 2.0            # Proportional gain for linear error
+      v_linear_min: 0.15      # m/s - minimum linear velocity
+      v_linear_max: 0.15      # m/s - maximum linear velocity
+      use_collision_detection: true
+      costmap_topic: "/local_costmap/costmap_raw"
+      footprint_topic: "/local_costmap/published_footprint"
+      transform_tolerance: 0.5
+      projection_time: 5.0       # seconds - collision projection time
+      simulation_step: 0.1       # seconds
+      dock_collision_threshold: 0.3
+>>>>>>> f5833c509133365fcf17d87b8edfa63976f4cddd
 
     # Dock instances
     # The following example illustrates configuring dock instances.
