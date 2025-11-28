@@ -53,7 +53,7 @@ amcl:
     z_short: 0.05    # Weight for short distribution
     
     tf_broadcast: true              # Broadcast map->odom transform
-    transform_tolerance: 0.5        # FIXED: Was 1.0s (too high!) - now 200ms for tighter localization
+    transform_tolerance: 1.0
     
     # Motion update thresholds - require this much movement before updating
     update_min_a: 0.2   # Minimum angular movement (radians)
@@ -150,7 +150,7 @@ controller_server:
       # MPPI algorithm parameters
       iteration_count: 1      # Number of MPPI iterations per control cycle
       prune_distance: 1.7     # meters - prune path points closer than this
-      transform_tolerance: 0.1
+      transform_tolerance: 0.5
       temperature: 0.3        # Lower = more deterministic, higher = more exploration
       gamma: 0.015           # Discount factor for future costs
       motion_model: "DiffDrive"
@@ -411,7 +411,7 @@ behavior_server:
     local_frame: odom
     global_frame: map
     robot_base_frame: base_footprint
-    transform_tolerance: 0.1
+    transform_tolerance: 0.5
     
     # Behavior parameters
     simulate_ahead_time: 2.0       # seconds - look ahead for collision checking
@@ -470,7 +470,7 @@ collision_monitor:
     cmd_vel_in_topic: "cmd_vel_smoothed"   # Input from velocity smoother
     cmd_vel_out_topic: "cmd_vel"            # Output to robot hardware
     state_topic: "collision_monitor_state"
-    transform_tolerance: 0.2
+    transform_tolerance: 0.5
     source_timeout: 1.0            # seconds - sensor data timeout
     base_shift_correction: True    # Correct for base frame offset
     stop_pub_timeout: 2.0          # seconds - publish stop command timeout
@@ -541,7 +541,7 @@ docking_server:
       use_collision_detection: true
       costmap_topic: "/local_costmap/costmap_raw"
       footprint_topic: "/local_costmap/published_footprint"
-      transform_tolerance: 0.1
+      transform_tolerance: 0.5
       projection_time: 5.0       # seconds - collision projection time
       simulation_step: 0.1       # seconds
       dock_collision_threshold: 0.3
