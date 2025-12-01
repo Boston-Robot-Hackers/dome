@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 # This is my version of launching the slam launch file from linorobot2
 
-
 from better_launch import BetterLaunch, launch_this
 
 
