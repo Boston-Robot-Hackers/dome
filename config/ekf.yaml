@@ -3,12 +3,10 @@ ekf_filter_node:
         frequency: 25.0
         two_d_mode: true
         publish_tf: true
-        print_diagnostics: false
- 
         map_frame: map             
         odom_frame: odom            
-        base_link_frame: base_footprint 
-        world_frame: odom 
+        base_link_frame: base_footprint
+        world_frame: odom
 
         # The order of the boolean values are (
         #      X,Y,Z,roll,pitch,yaw,vX,vY,vZ,vroll,vpitch,vyaw˙,accX,accY,accZ).
