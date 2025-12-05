@@ -20,49 +20,53 @@
   <xacro:property name="front_marker_z_offset" value="0.050" />
 
   <!-- Materials -->
-  <material name="clear_acrylic">
-    <color rgba="0.8 0.8 1.0 0.6"/>
-  </material>
+  <material name="slate">
+  <color rgba="0.35 0.40 0.45 1.0"/>
+</material>
 
-  <material name="blue">
-    <color rgba="0.0 0.0 1.0 1.0"/>
-  </material>
+<material name="coral">
+  <color rgba="0.91 0.45 0.38 1.0"/>
+</material>
 
-  <material name="light_blue">
-    <color rgba="0.5 0.8 1.0 1.0"/>
-  </material>
+<material name="sage">
+  <color rgba="0.56 0.68 0.53 1.0"/>
+</material>
 
-  <material name="grey">
-    <color rgba="0.5 0.5 0.5 1.0"/>
-  </material>
+<material name="gold">
+  <color rgba="0.85 0.68 0.32 1.0"/>
+</material>
 
-  <material name="red">
-    <color rgba="1.0 0.0 0.0 1.0"/>
-  </material>
+<material name="steel">
+  <color rgba="0.55 0.62 0.70 1.0"/>
+</material>
 
-  <material name="black">
-    <color rgba="0.1 0.1 0.1 1.0"/>
-  </material>
+<material name="plum">
+  <color rgba="0.56 0.35 0.48 1.0"/>
+</material>
 
-  <!-- Base footprint (ground projection) -->
-  <link name="base_footprint">
-    <visual>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-        <box size="0.01 0.01 0.001"/>
-      </geometry>
-      <material name="grey"/>
-    </visual>
-  </link>
+<material name="terracotta">
+  <color rgba="0.78 0.45 0.35 1.0"/>
+</material>
 
-  <!-- Base link (main robot body) -->
-  <link name="base_link"/>
+<material name="seafoam">
+  <color rgba="0.42 0.70 0.65 1.0"/>
+</material>
 
-  <joint name="base_link_to_base_footprint" type="fixed">
-    <parent link="base_footprint"/>
-    <child link="base_link"/>
-    <origin xyz="${-base_link_x_offset} 0 ${bottom_plate_height}" rpy="0 0 0"/>
-  </joint>
+<material name="mustard">
+  <color rgba="0.75 0.60 0.22 1.0"/>
+</material>
+
+<material name="dusty_rose">
+  <color rgba="0.72 0.52 0.55 1.0"/>
+</material>
+
+<material name="charcoal">
+  <color rgba="0.25 0.27 0.30 1.0"/>
+</material>
+
+<material name="light_blue">
+  <color rgba="0.5 0.8 1.0 1.0"/>
+</material>
 
   <!-- Base footprint (ground projection) -->
   <link name="base_footprint">
@@ -71,10 +75,25 @@
       <geometry>
         <cylinder radius="${plate_diameter/2}" length="${plate_thickness}"/>
       </geometry>
-      <material name="grey"/>
+      <material name="plum"/>
     </visual>
   </link>
 
+  <!-- Base link (center of the robot) -->
+  <link name="base_link">
+      <visual>
+        <geometry>
+          <sphere radius="0.005"/>
+        </geometry>
+        <material name="gold"/>
+      </visual>
+  </link>
+
+  <joint name="base_link_to_base_footprint" type="fixed">
+    <parent link="base_footprint"/>
+    <child link="base_link"/>
+    <origin xyz="${-base_link_x_offset} 0 ${bottom_plate_height}" rpy="0 0 0"/>
+  </joint>
 
   <!-- Bottom plate -->
   <link name="bottom_plate">
@@ -83,7 +102,7 @@
       <geometry>
         <cylinder radius="${plate_diameter/2}" length="${plate_thickness}"/>
       </geometry>
-      <material name="light_blue"/>
+      <material name="coral"/>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -106,7 +125,7 @@
       <geometry>
         <cylinder radius="${plate_diameter/2}" length="${plate_thickness}"/>
       </geometry>
-      <material name="blue"/>
+      <material name="terracotta"/>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -130,7 +149,7 @@
         <geometry>
           <cylinder radius="${support_post_diameter/2}" length="${support_post_height}"/>
         </geometry>
-        <material name="blue"/>
+        <material name="mustard"/>
       </visual>
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -160,7 +179,7 @@
         <geometry>
           <cylinder radius="${wheel_diameter/2}" length="${wheel_width}"/>
         </geometry>
-        <material name="black"/>
+        <material name="steel"/>
       </visual>
       <collision>
         <origin xyz="0 0 0" rpy="1.57 0 0"/>
@@ -206,13 +225,13 @@
   </joint>
 
   <!-- IMU -->
-  <link name="imu">
+  <link name="imu_link">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
         <box size="0.020 0.020 0.010"/>
       </geometry>
-      <material name="grey"/>
+      <material name="slate"/>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -224,7 +243,7 @@
 
   <joint name="base_link_to_imu" type="fixed">
     <parent link="base_link"/>
-    <child link="imu"/>
+    <child link="imu_link"/>
     <origin xyz="${imu_x_offset} 0 ${imu_z_offset}" rpy="0 0 0"/>
   </joint>
 
@@ -235,7 +254,7 @@
       <geometry>
         <box size="0.10 0.030 0.010"/>
       </geometry>
-      <material name="red"/>
+      <material name="seafoam"/>
     </visual>
   </link>
 
