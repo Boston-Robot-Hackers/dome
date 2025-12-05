@@ -64,6 +64,18 @@
     <origin xyz="${-base_link_x_offset} 0 ${-bottom_plate_height}" rpy="0 0 0"/>
   </joint>
 
+  <!-- Base footprint (ground projection) -->
+  <link name="base_footprint">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="${plate_diameter/2}" length="${plate_thickness}"/>
+      </geometry>
+      <material name="grey"/>
+    </visual>
+  </link>
+
+
   <!-- Bottom plate -->
   <link name="bottom_plate">
     <visual>
@@ -71,7 +83,7 @@
       <geometry>
         <cylinder radius="${plate_diameter/2}" length="${plate_thickness}"/>
       </geometry>
-      <material name="clear_acrylic"/>
+      <material name="light_blue"/>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -94,7 +106,7 @@
       <geometry>
         <cylinder radius="${plate_diameter/2}" length="${plate_thickness}"/>
       </geometry>
-      <material name="clear_acrylic"/>
+      <material name="blue"/>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
