@@ -2,22 +2,59 @@
 <robot name="dome_x1" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
   <!-- Parameters -->
+
+  <!-- Robot structure dimensions -->
   <xacro:property name="plate_diameter" value="0.280" />
   <xacro:property name="plate_thickness" value="0.003" />
   <xacro:property name="bottom_plate_height" value="0.065" />
   <xacro:property name="top_plate_height" value="0.125" />
   <xacro:property name="base_link_x_offset" value="0.0" />
+
+  <!-- Base link visualization marker -->
+  <xacro:property name="base_link_marker_radius" value="0.01" />
+  <xacro:property name="base_link_marker_length" value="0.1" />
+
+  <!-- Wheel dimensions and positioning -->
   <xacro:property name="wheel_base" value="0.215" />
   <xacro:property name="wheel_diameter" value="0.0625" />
   <xacro:property name="wheel_width" value="0.024" />
+  <xacro:property name="wheel_x_offset" value="0.08" />
+  <xacro:property name="wheel_ground_clearance" value="0.005" />
+
+  <!-- Support post dimensions and positions -->
   <xacro:property name="support_post_diameter" value="0.010" />
-  <xacro:property name="support_post_height" value="0.080" />
+  <xacro:property name="support_post_height" value="0.070" />
+  <xacro:property name="support_post_1_x" value="0.1" />
+  <xacro:property name="support_post_1_y" value="0" />
+  <xacro:property name="support_post_2_x" value="-0.1" />
+  <xacro:property name="support_post_y_spread" value="0.070" />
+
+  <!-- Laser sensor dimensions and positioning -->
   <xacro:property name="laser_x_offset" value="-0.040" />
   <xacro:property name="laser_z_offset" value="0.130" />
+  <xacro:property name="laser_radius" value="0.03" />
+  <xacro:property name="laser_height" value="0.02" />
+
+  <!-- Laser tower dimensions and position -->
+  <xacro:property name="laser_tower_radius" value="0.005" />
+  <xacro:property name="laser_tower_height" value="0.05" />
+  <xacro:property name="laser_tower_x_offset" value="-0.05" />
+  <xacro:property name="laser_tower_y_offset" value="0" />
+  <xacro:property name="laser_tower_z_offset" value="0.03" />
+
+  <!-- IMU sensor dimensions and positioning -->
   <xacro:property name="imu_x_offset" value="-0.040" />
   <xacro:property name="imu_z_offset" value="0.020" />
-  <xacro:property name="front_marker_x_offset" value="0.1" />
+  <xacro:property name="imu_length" value="0.020" />
+  <xacro:property name="imu_width" value="0.020" />
+  <xacro:property name="imu_height" value="0.010" />
+
+  <!-- Front marker dimensions and positioning -->
+  <xacro:property name="front_marker_x_offset" value="0.15" />
   <xacro:property name="front_marker_z_offset" value="0.065" />
+  <xacro:property name="front_marker_length" value="0.04" />
+  <xacro:property name="front_marker_width" value="0.02" />
+  <xacro:property name="front_marker_thickness" value="0.001" />
 
   <!-- Materials -->
   <material name="slate">
@@ -95,7 +132,7 @@
   <link name="base_link">
       <visual>
         <geometry>
-          <sphere radius="0.01"/>
+          <sphere radius="${base_link_marker_radius}" length="${base_link_marker_length}"/>
         </geometry>
         <material name="gold"/>
       </visual>
@@ -137,7 +174,7 @@
       <geometry>
         <cylinder radius="${plate_diameter/2}" length="${plate_thickness}"/>
       </geometry>
-      <material name="terracotta"/>
+      <material name="charcoal"/>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -179,9 +216,9 @@
   </xacro:macro>
 
   <!-- Support posts -->
-  <xacro:support_post name="support_post_1" x_pos="0.1" y_pos="0"/>
-  <xacro:support_post name="support_post_2" x_pos="-0.1" y_pos="0.070"/>
-  <xacro:support_post name="support_post_3" x_pos="-0.1" y_pos="-0.070"/>
+  <xacro:support_post name="support_post_1" x_pos="${support_post_1_x}" y_pos="${support_post_1_y}"/>
+  <xacro:support_post name="support_post_2" x_pos="${support_post_2_x}" y_pos="${support_post_y_spread}"/>
+  <xacro:support_post name="support_post_3" x_pos="${support_post_2_x}" y_pos="${-support_post_y_spread}"/>
 
   <!-- Wheel macro -->
   <xacro:macro name="wheel" params="side reflect">
@@ -204,7 +241,7 @@
     <joint name="base_link_to_${side}_wheel" type="continuous">
       <parent link="base_link"/>
       <child link="${side}_wheel"/>
-      <origin xyz="0 ${reflect * wheel_base/2} ${-wheel_diameter/2 - 0.005}" rpy="0 0 0"/>
+      <origin xyz="${wheel_x_offset} ${reflect * wheel_base/2} ${-wheel_diameter/2 - wheel_ground_clearance}" rpy="0 0 0"/>
       <axis xyz="0 1 0"/>
     </joint>
   </xacro:macro>
@@ -218,12 +255,28 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 ${pi/2.0}"/>
       <geometry>
-          <box size="0.06 0.01 0.01"/>
+          <cylinder radius="${laser_radius}" length="${laser_height}"/>
       </geometry>
       <material name="red"/>
     </visual>
   </link>
 
+  <link name="laser_tower">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+          <cylinder radius="${laser_tower_radius}" length="${laser_tower_height}"/>
+      </geometry>
+      <material name="light_blue"/>
+    </visual>
+  </link>
+
+  <joint name="laser_to_tower" type="fixed">
+    <parent link="top_plate"/>
+    <child link="laser_tower"/>
+    <origin xyz="${laser_tower_x_offset} ${laser_tower_y_offset} ${laser_tower_z_offset}" rpy="0 0 0"/>
+  </joint>
+       
   <joint name="base_link_to_laser" type="fixed">
     <parent link="base_link"/>
     <child link="laser"/>
@@ -235,14 +288,14 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.020 0.020 0.010"/>
+        <box size="${imu_length} ${imu_width} ${imu_height}"/>
       </geometry>
       <material name="orange"/>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.020 0.020 0.010"/>
+        <box size="${imu_length} ${imu_width} ${imu_height}"/>
       </geometry>
     </collision>
   </link>
@@ -258,7 +311,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.10 0.030 0.010"/>
+        <box size="${front_marker_length} ${front_marker_width} ${front_marker_thickness}"/>
       </geometry>
       <material name="darkblue"/>
     </visual>
