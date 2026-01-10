@@ -7,7 +7,7 @@ from better_launch import BetterLaunch, launch_this
 @launch_this(ui=True)
 def start_nav(rviz_arg: bool = False):
     bl = BetterLaunch()
-    urdf_path = bl.find("dome", "dome1.urdf.xacro")
+    urdf_path = bl.find("dome", "dome2.urdf.xacro")
     ekf_config_path = bl.find("dome", "ekf.yaml")
     bl.include(
         "linorobot2_bringup",
@@ -21,5 +21,10 @@ def start_nav(rviz_arg: bool = False):
         joy="false",
         urdf=urdf_path,
         ekf_config_path=ekf_config_path,
+    )
+    bl.include(
+        "foxglove_bridge",
+        "foxglove_bridge_launch.xml",
+        port="8765"
     )
     bl.logger.info("***********")

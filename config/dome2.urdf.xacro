@@ -1,0 +1,151 @@
+<?xml version="1.0"?>
+<robot name="dome_x2" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <material name="gray">
+    <color rgba="0.5 0.5 0.5 1.0" />
+  </material>
+  <material name="black">
+    <color rgba="0 0 0 1" />
+  </material>
+  <material name="red">
+    <color rgba="1 0 0 1" />
+  </material>
+  <material name="blue">
+    <color rgba="0.3 0.3 0.8 1" />
+  </material>
+  <material name="green">
+    <color rgba="0 0.8 0 1" />
+  </material>
+  <link name="base_footprint" />
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <cylinder radius="0.15" length="0.003" />
+      </geometry>
+      <material name="gray" />
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder radius="0.15" length="0.003" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="left_wheel">
+    <visual>
+      <origin rpy="1.5708 0 0" />
+      <geometry>
+        <cylinder radius="0.03" length="0.0175" />
+      </geometry>
+      <material name="grey" />
+    </visual>
+    <collision>
+      <origin rpy="1.5708 0 0" />
+      <geometry>
+        <cylinder radius="0.03" length="0.0175" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="right_wheel">
+    <visual>
+      <origin rpy="1.5708 0 0" />
+      <geometry>
+        <cylinder radius="0.03" length="0.0175" />
+      </geometry>
+      <material name="grey" />
+    </visual>
+    <collision>
+      <origin rpy="1.5708 0 0" />
+      <geometry>
+        <cylinder radius="0.03" length="0.0175" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="caster">
+    <visual>
+      <geometry>
+        <sphere radius="0.015" />
+      </geometry>
+      <material name="gray" />
+    </visual>
+    <collision>
+      <geometry>
+        <sphere radius="0.015" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="lidar_post">
+    <visual>
+      <geometry>
+        <box size="0.01 0.01 0.09" />
+      </geometry>
+      <material name="blue" />
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.01 0.01 0.09" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="lidar">
+    <visual>
+      <geometry>
+        <cylinder radius="0.03" length="0.05" />
+      </geometry>
+      <material name="red" />
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder radius="0.03" length="0.05" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="imu_link">
+    <visual>
+      <geometry>
+        <box size="0.03 0.02 0.01" />
+      </geometry>
+      <material name="green" />
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.03 0.02 0.01" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="base_footprint_to_base_link" type="fixed">
+    <parent link="base_footprint" />
+    <child link="base_link" />
+    <origin xyz="0 0 0.05" />
+  </joint>
+  <joint name="base_link_to_left_wheel" type="continuous">
+    <parent link="base_link" />
+    <child link="left_wheel" />
+    <origin xyz="0.1 0.125 -0.03" />
+    <axis xyz="0 1 0" />
+  </joint>
+  <joint name="base_link_to_right_wheel" type="continuous">
+    <parent link="base_link" />
+    <child link="right_wheel" />
+    <origin xyz="0.1 -0.125 -0.03" />
+    <axis xyz="0 1 0" />
+  </joint>
+  <joint name="base_link_to_caster" type="fixed">
+    <parent link="base_link" />
+    <child link="caster" />
+    <origin xyz="-0.12 0 -0.05" />
+  </joint>
+  <joint name="base_link_to_imu_link" type="fixed">
+    <parent link="base_link" />
+    <child link="imu_link" />
+    <origin xyz="0.03 0 0.053" rpy="1.5708 0 1.5708" />
+  </joint>
+  <joint name="base_link_to_lidar_post" type="fixed">
+    <parent link="base_link" />
+    <child link="lidar_post" />
+    <origin xyz="0 0 0.05" />
+  </joint>
+  <joint name="lidar_post_to_lidar" type="fixed">
+    <parent link="lidar_post" />
+    <child link="lidar" />
+    <origin xyz="0 0 0.05" />
+  </joint>
+</robot>
