@@ -21,6 +21,12 @@
   <material name="white">
     <color rgba="1 1 1 1" />
   </material>
+  <material name="dark_red">
+    <color rgba="0.5 0 0 1" />
+  </material>
+  <material name="dark_green">
+    <color rgba="0 0.4 0 1" />
+  </material>
   <link name="base_footprint" />
   <link name="base_link">
     <visual>
@@ -96,7 +102,7 @@
       <geometry>
         <cylinder radius="0.03" length="0.05" />
       </geometry>
-      <material name="red" />
+      <material name="dark_green" />
     </visual>
     <collision>
       <geometry>
@@ -104,82 +110,94 @@
       </geometry>
     </collision>
   </link>
-  <link name="imu_link" />
-  <link name="imu_top_link">
+  <link name="laser_forward_link">
     <visual>
       <geometry>
-        <box size="0.03 0.02 0.001" />
-      </geometry>
-      <material name="blue" />
-    </visual>
-    <collision>
-      <geometry>
-        <box size="0.03 0.02 0.001" />
-      </geometry>
-    </collision>
-  </link>
-  <link name="imu_bottom_link">
-    <visual>
-      <geometry>
-        <box size="0.026 0.016 0.001" />
-      </geometry>
-      <material name="white" />
-    </visual>
-    <collision>
-      <geometry>
-        <box size="0.026 0.016 0.001" />
-      </geometry>
-    </collision>
-  </link>
-  <link name="imu_front_link">
-    <visual>
-      <geometry>
-        <box size="0.001 0.02 0.01" />
+        <box size="0.04 0.002 0.002" />
       </geometry>
       <material name="red" />
     </visual>
     <collision>
       <geometry>
-        <box size="0.001 0.02 0.01" />
+        <box size="0.04 0.002 0.002" />
       </geometry>
     </collision>
   </link>
-  <link name="imu_back_link">
+  <link name="laser_left_link">
     <visual>
       <geometry>
-        <box size="0.001 0.016 0.008" />
+        <box size="0.002 0.04 0.002" />
       </geometry>
-      <material name="white" />
+      <material name="green" />
     </visual>
     <collision>
       <geometry>
-        <box size="0.001 0.016 0.008" />
+        <box size="0.002 0.04 0.002" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="laser_up_link">
+    <visual>
+      <geometry>
+        <box size="0.002 0.002 0.04" />
+      </geometry>
+      <material name="blue" />
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.002 0.002 0.04" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="imu_link">
+    <visual>
+      <geometry>
+        <box size="0.03 0.02 0.01" />
+      </geometry>
+      <material name="dark_red" />
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.03 0.02 0.01" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="imu_forward_link">
+    <visual>
+      <geometry>
+        <box size="0.03 0.002 0.002" />
+      </geometry>
+      <material name="red" />
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.03 0.002 0.002" />
       </geometry>
     </collision>
   </link>
   <link name="imu_left_link">
     <visual>
       <geometry>
-        <box size="0.03 0.001 0.01" />
+        <box size="0.002 0.03 0.002" />
       </geometry>
       <material name="green" />
     </visual>
     <collision>
       <geometry>
-        <box size="0.03 0.001 0.01" />
+        <box size="0.002 0.03 0.002" />
       </geometry>
     </collision>
   </link>
-  <link name="imu_right_link">
+  <link name="imu_up_link">
     <visual>
       <geometry>
-        <box size="0.026 0.001 0.008" />
+        <box size="0.002 0.002 0.03" />
       </geometry>
-      <material name="white" />
+      <material name="blue" />
     </visual>
     <collision>
       <geometry>
-        <box size="0.026 0.001 0.008" />
+        <box size="0.002 0.002 0.03" />
       </geometry>
     </collision>
   </link>
@@ -223,35 +241,20 @@
     <child link="imu_link" />
     <origin xyz="0.03 0 0.053" rpy="1.5707963267948966 0 3.141592653589793" />
   </joint>
-  <joint name="imu_link_to_imu_top_link" type="fixed">
+  <joint name="imu_link_to_imu_forward_link" type="fixed">
     <parent link="imu_link" />
-    <child link="imu_top_link" />
-    <origin xyz="0 0 0.0045" />
-  </joint>
-  <joint name="imu_link_to_imu_bottom_link" type="fixed">
-    <parent link="imu_link" />
-    <child link="imu_bottom_link" />
-    <origin xyz="0 0 -0.004" />
-  </joint>
-  <joint name="imu_link_to_imu_front_link" type="fixed">
-    <parent link="imu_link" />
-    <child link="imu_front_link" />
-    <origin xyz="0.0145 0 0" />
-  </joint>
-  <joint name="imu_link_to_imu_back_link" type="fixed">
-    <parent link="imu_link" />
-    <child link="imu_back_link" />
-    <origin xyz="-0.014 0 0" />
+    <child link="imu_forward_link" />
+    <origin xyz="0.015 0 0" />
   </joint>
   <joint name="imu_link_to_imu_left_link" type="fixed">
     <parent link="imu_link" />
     <child link="imu_left_link" />
-    <origin xyz="0 0.0095 0" />
+    <origin xyz="0 0.01 0" />
   </joint>
-  <joint name="imu_link_to_imu_right_link" type="fixed">
+  <joint name="imu_link_to_imu_up_link" type="fixed">
     <parent link="imu_link" />
-    <child link="imu_right_link" />
-    <origin xyz="0 -0.009 0" />
+    <child link="imu_up_link" />
+    <origin xyz="0 0 0.015" />
   </joint>
   <joint name="base_link_to_origin_marker_link" type="fixed">
     <parent link="base_link" />
@@ -266,6 +269,21 @@
   <joint name="base_link_to_laser" type="fixed">
     <parent link="base_link" />
     <child link="laser" />
-    <origin xyz="0 0 0.1" />
+    <origin xyz="0 0 0.1" rpy="0 0 -1.5707963267948966" />
+  </joint>
+  <joint name="laser_to_laser_forward_link" type="fixed">
+    <parent link="laser" />
+    <child link="laser_forward_link" />
+    <origin xyz="0.02 0 0" />
+  </joint>
+  <joint name="laser_to_laser_left_link" type="fixed">
+    <parent link="laser" />
+    <child link="laser_left_link" />
+    <origin xyz="0 0.02 0" />
+  </joint>
+  <joint name="laser_to_laser_up_link" type="fixed">
+    <parent link="laser" />
+    <child link="laser_up_link" />
+    <origin xyz="0 0 0.03" />
   </joint>
 </robot>

@@ -1,0 +1,39 @@
+amcl:
+  ros__parameters:
+    laser_max_range: 12.0
+    laser_min_range: 0.3
+
+# Robot dimensions and footprint
+local_costmap:
+  local_costmap:
+    ros__parameters:
+      robot_radius: 0.30        # Your robot's radius in meters (adjust to your robot)
+      width: 5                  # Local costmap width in meters
+      height: 5                 # Local costmap height in meters
+      inflation_layer:
+        inflation_radius: 0.70  # Inflation radius around obstacles
+
+global_costmap:
+  global_costmap:
+    ros__parameters:
+      robot_radius: 0.30        # Must match local_costmap
+
+# Controller velocity limits
+controller_server:
+  ros__parameters:
+    general_goal_checker:
+      xy_goal_tolerance: 0.25   # Position tolerance for goal (meters)
+      yaw_goal_tolerance: 0.25  # Angular tolerance for goal (radians)
+    FollowPath:
+      vx_max: 0.5               # Maximum forward velocity (m/s)
+      vx_min: -0.35             # Maximum backward velocity (m/s)
+      vy_max: 0.5               # Maximum lateral velocity (m/s) - for holonomic robots
+      wz_max: 1.9               # Maximum angular velocity (rad/s)
+
+# Velocity smoother - should match or be more restrictive than controller
+velocity_smoother:
+  ros__parameters:
+    max_velocity: [0.5, 0.0, 1.9]     # [vx, vy, wz] max velocities
+    min_velocity: [-0.35, 0.0, -1.9]  # [vx, vy, wz] min velocities
+    max_accel: [2.5, 0.0, 3.2]        # Maximum acceleration
+    max_decel: [-2.5, 0.0, -3.2]      # Maximum deceleration

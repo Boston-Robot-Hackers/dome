@@ -1,0 +1,18 @@
+# SLAM Toolbox Parameter Overrides
+# Only include parameters you want to change from defaults
+
+slam_toolbox:
+  ros__parameters:
+    # Map settings
+    map_file_name: "/home/pitosalas/.control/maps/exp1"
+    map_start_pose: [0.0, 0.0, 0.0]
+
+    # Laser range settings
+    max_laser_range: 10.0               # Default: 20.0 - reduced for better accuracy
+
+    # Transform settings
+    transform_timeout: 0.5              # Default: 0.2 - increased to allow more time for TF lookup
+    tf_buffer_duration: 50.0            # Default: 30.0 - increased buffer duration
+
+    # Message handling
+    message_queue_size: 20              # NEW: Prevents dropped messages due to queue overflow
