@@ -57,7 +57,6 @@ def start_nav():
     base_params = bl.find("nav2_bringup", "nav2_params.yaml")
     override_params = bl.find("dome", "nav2_param_patch.yaml")
     merged_params = yaml_override(base_params, override_params)
-    print(merged_params)
 
     bl.include(
         "nav2_bringup",
@@ -65,6 +64,8 @@ def start_nav():
         map="/home/pitosalas/.control/maps/exp1.yaml",
         rviz=False,
         use_sim_time=False,
+        slam=True,
+        use_localization=True,
         params_file=merged_params
     )
     bl.logger.info("*** LOG ***")

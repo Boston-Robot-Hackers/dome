@@ -70,7 +70,7 @@ def start_nav(rviz_arg: bool = False):
         "bringup_launch.py",
         rviz=rviz_arg,
         sim=False,
-        params_file=nav_config,
+        params_file=nav_config
     )
 
     bl.include(
