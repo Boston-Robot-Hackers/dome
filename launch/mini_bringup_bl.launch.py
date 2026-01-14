@@ -5,14 +5,14 @@ from better_launch import BetterLaunch, launch_this
 
 
 @launch_this(ui=True)
-def start_nav(rviz_arg: bool = False):
+def start_nav():
     bl = BetterLaunch()
     urdf_path = bl.find("dome", "dome2.urdf")
     ekf_config_path = bl.find("dome", "ekf.yaml")
     bl.include(
         "linorobot2_bringup",
         "bringup.launch.py",
-        rviz=rviz_arg,
+        rviz=False,
         sim=False,
         base_serial_port="/dev/esp32",
         micro_ros_baudrate="921600",

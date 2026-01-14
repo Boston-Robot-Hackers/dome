@@ -7,18 +7,19 @@ amcl:
 local_costmap:
   local_costmap:
     ros__parameters:
-      robot_radius: 0.30        # Your robot's radius in meters (adjust to your robot)
+      robot_radius: 0.15        # Your robot's radius in meters 
       width: 5                  # Local costmap width in meters
       height: 5                 # Local costmap height in meters
       inflation_layer:
-        inflation_radius: 0.50  # Inflation radius around obstacles
-
+        inflation_radius: 0.2  # Inflation radius around obstacles
+        cost_scaling_factor: 10.0
 global_costmap:
   global_costmap:
     ros__parameters:
-      robot_radius: 0.30        # Must match local_costmap
+      robot_radius: 0.15        # Must match local_costmap
+      voxel_layer:              # As our robot has a simple 2d lidar
+        enabled: false
 
-# Controller velocity limits
 controller_server:
   ros__parameters:
     general_goal_checker:
@@ -27,26 +28,32 @@ controller_server:
     FollowPath:
       vx_max: 0.5               # Maximum forward velocity (m/s)
       vx_min: -0.35             # Maximum backward velocity (m/s)
-      vy_max: 0.5               # Maximum lateral velocity (m/s) - for holonomic robots
+      vy_max: 0.0               # ...for holonomic robots
       wz_max: 1.9               # Maximum angular velocity (rad/s)
+      
+collision_monitor:
+  ros__parameters:
+    FootprintApproach:
+      time_before_collision: 1.0  # Default was 1.2
+
 
 # Velocity smoother - should match or be more restrictive than controller
 velocity_smoother:
   ros__parameters:
-    max_velocity: [0.5, 0.0, 1.9]     # [vx, vy, wz] max velocities
-    min_velocity: [-0.35, 0.0, -1.9]  # [vx, vy, wz] min velocities
-    max_accel: [2.5, 0.0, 3.2]        # Maximum acceleration
-    max_decel: [-2.5, 0.0, -3.2]      # Maximum deceleration
+    max_velocity: [0.4, 0.0, 1.9]     # [vx, vy, wz] max velocities
+    min_velocity: [-0.4, 0.0, -1.9]  # [vx, vy, wz] min velocities
+    max_accel: [1.5, 0.0, 3.2]        # Maximum acceleration
+    max_decel: [-1.5, 0.0, -3.2]      # Maximum deceleration
 
 slam_toolbox:
   ros__parameters:
-    mode: mapping
+    mode: mapping # Supposedly doesnt do anything
     
     # Map output location (without .yaml/.pgm extension)
-    map_file_name: /home/pitosalas/.control/maps/exp2
+    map_file_name: /home/pitosalas/.control/maps/exp3
     
-    # Initial pose [x, y, theta] - usually leave at origin
-    map_start_pose: [0.0, 0.0, 0.0]
+    # # Initial pose [x, y, theta] - usually leave at origin
+    # map_start_pose: [0.0, 0.0, 0.0]
     
     # Key tuning parameters
     resolution: 0.05              # Map resolution in meters (5cm default)

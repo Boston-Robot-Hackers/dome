@@ -61,10 +61,10 @@ def start_nav():
     bl.include(
         "nav2_bringup",
         "bringup_launch.py",
-        map="/home/pitosalas/.control/maps/exp1.yaml",
+        map="/home/pitosalas/.control/maps/exp3.yaml",
         rviz=False,
         use_sim_time=False,
-        slam=True,
+        slam=False, # change to True to run slam_toolbox, false to just navitate
         use_localization=True,
         params_file=merged_params
     )
