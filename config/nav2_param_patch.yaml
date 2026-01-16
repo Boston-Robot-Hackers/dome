@@ -16,9 +16,20 @@ local_costmap:
 global_costmap:
   global_costmap:
     ros__parameters:
+      plugins: ["static_layer", "inflation_layer"]
       robot_radius: 0.15        # Must match local_costmap
       voxel_layer:              # As our robot has a simple 2d lidar
         enabled: false
+      inflation_layer:
+        inflation_radius: 0.5  # Inflation radius around obstacles
+        cost_scaling_factor: 15.0
+      static_layer:
+        enabled: true
+        map_topic: /map
+        subscribe_to_updates: true
+        lethal_cost_threshold: 65
+        unknown_cost_value: -1
+        trinary_costmap: true
 
 controller_server:
   ros__parameters:

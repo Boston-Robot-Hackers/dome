@@ -58,7 +58,7 @@ def start_nav():
     override_params = bl.find("dome", "nav2_param_patch.yaml")
     merged_params = yaml_override(base_params, override_params)
 
-# Configure Slam=True to use slam_toolbox with Navigsation
+# Configure slam=True to use slam_toolbox with Navigsation
 
     bl.include(
         "nav2_bringup",
@@ -66,7 +66,7 @@ def start_nav():
         map="/home/pitosalas/.control/maps/exp4.yaml",
         rviz=False,
         use_sim_time=False,
-        slam=True, 
+        slam=False, 
         use_localization=True,
         params_file=merged_params
     )
