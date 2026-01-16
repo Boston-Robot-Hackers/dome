@@ -57,22 +57,10 @@ def start_nav(rviz_arg: bool = False):
 
     # Merge slam_toolbox default params with your overrides
     slam_base = bl.find("slam_toolbox", "mapper_params_online_async.yaml")
-    slam_override = bl.find("dome", "slam_param_patch.yaml")
+    slam_override = bl.find("dome", "nav2_param_patch.yaml")
     slam_config = yaml_override(slam_base, slam_override)
 
-    # Merge nav2 default params with your overrides
-    nav_base = bl.find("nav2_bringup", "nav2_params.yaml")
-    nav_override = bl.find("dome", "nav2_param_patch.yaml")
-    nav_config = yaml_override(nav_base, nav_override)
-
-    bl.include(
-        "nav2_bringup",
-        "bringup_launch.py",
-        rviz=rviz_arg,
-        sim=False,
-        params_file=nav_config
-    )
-
+    
     bl.include(
         "slam_toolbox",
         "online_async_launch.py",
