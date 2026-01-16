@@ -5,21 +5,26 @@ from better_launch import BetterLaunch, launch_this
 
 
 @launch_this(ui=True)
-def start_nav(rviz_arg: bool = False):
+def start_nav():
     bl = BetterLaunch()
-    urdf_path = bl.find("dome", "dome1.urdf.xacro")
+    urdf_path = bl.find("dome", "dome2.urdf")
     ekf_config_path = bl.find("dome", "ekf.yaml")
     bl.include(
         "linorobot2_bringup",
         "bringup.launch.py",
-        rviz=rviz_arg,
+        rviz=False,
         sim=False,
         base_serial_port="/dev/esp32",
         micro_ros_baudrate="921600",
         madgwick="false",
         orientation_stddev="0.01",
-        joy="false",
+        joy="true",
         urdf=urdf_path,
         ekf_config_path=ekf_config_path,
     )
-    bl.logger.info("***********")
+    bl.include(
+        "foxglove_bridge",
+        "foxglove_bridge_launch.xml",
+        port="8765"
+    )
+    bl.logger.info(f"****{urdf_path}*******")

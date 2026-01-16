@@ -1,8 +1,10 @@
 ekf_filter_node:
     ros__parameters:
-        frequency: 25.0
+        frequency: 50.0
         two_d_mode: true
         publish_tf: true
+# Whether to publish the acceleration state; this may help nav2
+        publish_acceleration: true
         map_frame: map             
         odom_frame: odom            
         base_link_frame: base_footprint

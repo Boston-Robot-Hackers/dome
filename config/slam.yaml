@@ -16,7 +16,7 @@ slam_toolbox:
     scan_topic: /scan
     mode: mapping 
 
-    map_file_name: "/home/pitosalas/.control/maps/newbasement"
+    map_file_name: "/home/pitosalas/.control/maps/exp1"
     # map_start_at_dock: true
     map_start_pose: [0.0, 0.0, 0.0]
 
