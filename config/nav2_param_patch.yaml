@@ -61,7 +61,7 @@ slam_toolbox:
     mode: mapping # Supposedly doesnt do anything
     
     # Map output location (without .yaml/.pgm extension)
-    map_file_name: /home/pitosalas/.control/maps/exp4
+    map_file_name: /home/pitosalas/.control/maps/upstairs
     
     # # Initial pose [x, y, theta] - usually leave at origin
     # map_start_pose: [0.0, 0.0, 0.0]
