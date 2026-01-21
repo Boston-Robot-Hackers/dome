@@ -63,7 +63,7 @@ def start_nav():
     bl.include(
         "nav2_bringup",
         "bringup_launch.py",
-        map="/home/pitosalas/.control/maps/upstairs.yaml",
+        map="/home/pitosalas/.control/maps/exp4.yaml",
         rviz=False,
         use_sim_time=False,
         slam=False, 
