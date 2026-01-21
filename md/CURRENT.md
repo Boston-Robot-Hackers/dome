@@ -2,7 +2,7 @@
 
 ## Overview
 
-Navigation stack for dome robot using Nav2.
+Complete set of standard software, launch files, configs, and more for the Dome robot.
 
 ## Configuration
 
