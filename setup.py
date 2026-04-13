@@ -22,10 +22,8 @@ setup(
     maintainer_email='pitosalas@gmail.com',
     description='TODO: Package description',
     license='TODO: License declaration',
-    tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'dome_controller = dome.dome_controller:main',
             'rotation_test = dome.rotation_test:main',
             'sensorcsv = dome.sensorcsv:main',
             'test_cmdvel = dome.test_cmdvel:main',
@@ -35,7 +33,8 @@ setup(
             'topic_hz = dome.topic_hz:main',
             'trace_tf = dome.trace_tf:main',
             'trace_tf2 = dome.trace_tf2:main',
-            'trace_sensor_data = dome.trace_sensor_data:main'
+            'trace_sensor_data = dome.trace_sensor_data:main',
+            'oakd_test = dome.oakd_test:main'
         ],
     },
 )

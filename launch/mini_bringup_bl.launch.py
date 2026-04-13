@@ -7,7 +7,7 @@ from better_launch import BetterLaunch, launch_this
 @launch_this(ui=True)
 def start_nav():
     bl = BetterLaunch()
-    urdf_path = bl.find("dome", "dome2.urdf")
+    urdf_path = bl.find("dome", "dome3.urdf")
     ekf_config_path = bl.find("dome", "ekf.yaml")
     bl.include(
         "linorobot2_bringup",

@@ -13,7 +13,7 @@ launch:
         - name: madgwick_imu_topic
           value: '/imu/corrected_data'
         - name: joy
-          value: "false"
+          value: "true"
         - name: urdf
           value: "$(find-pkg-share dome)/config/dome1.urdf.xacro"
         - name: ekf_config_path
