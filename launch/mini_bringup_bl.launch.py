@@ -25,6 +25,6 @@ def start_nav():
     bl.include(
         "foxglove_bridge",
         "foxglove_bridge_launch.xml",
-        port="8765"
+        port="8080"
     )
     bl.logger.info(f"****{urdf_path}*******")
