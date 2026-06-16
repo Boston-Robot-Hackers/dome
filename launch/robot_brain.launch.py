@@ -20,7 +20,7 @@ def robot_brain_launch(
     )
 
     bl.include(
-        "control",
+        "dome_control",
         "robot.launch.py",
     )
 

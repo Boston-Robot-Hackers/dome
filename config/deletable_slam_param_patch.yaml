@@ -4,7 +4,8 @@
 slam_toolbox:
   ros__parameters:
     # Map settings
-    map_file_name: "/home/pitosalas/.control/maps/exp4"
+    map_file_name: "/home/pitosalas/.control/maps/basement1",
+
     map_start_pose: [0.0, 0.0, 0.0]
 
     # Laser range settings
